@@ -192,7 +192,12 @@ export function buildExam(lesson, pool, total = 15) {
 
 // ---- Reconocimiento de voz ----
 const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-export const canListen = () => !!Recognition;
+// En el iPhone, con la web añadida a la pantalla de inicio, el reconocimiento no funciona aunque exista.
+const iosStandalone = navigator.standalone === true || (/iP(hone|ad|od)/.test(navigator.userAgent) && matchMedia('(display-mode: standalone)').matches);
+export const canListen = () => !!Recognition && !iosStandalone;
+let activeRec = null;
+// Para el micrófono si se sale del ejercicio.
+export function stopListening() { try { activeRec?.abort(); } catch { /* ya parado */ } activeRec = null; }
 
 let pinyinLib = null;
 const loadPinyin = () => (pinyinLib ??= import('./vendor/pinyin-pro.mjs').catch(() => null));
@@ -224,30 +229,50 @@ function similarity(a, b) {
   return 1 - d[m][n] / Math.max(m, n);
 }
 
-// Escucha una vez y devuelve { ok, heard } comparando sílabas sin tono.
+// Escucha una vez y devuelve { ok, heard, py, error }. Nunca se queda colgado: hay un tiempo máximo.
 function listenOnce(target) {
   return new Promise((resolve) => {
-    const rec = new Recognition();
-    rec.lang = 'zh-CN';
-    rec.interimResults = false;
-    rec.maxAlternatives = 5;
     let done = false;
-    const finish = (r) => { if (!done) { done = true; resolve(r); } };
-    rec.onresult = async (e) => {
-      const alts = [...e.results[0]].map((a) => a.transcript);
-      const want = await sylls(target);
-      let best = { score: 0, heard: alts[0] || '' };
-      for (const a of alts) {
-        const got = await sylls(a);
-        const s = cleanZh(a) === cleanZh(target) ? 1 : similarity(got, want);
-        if (s > best.score) best = { score: s, heard: a, py: got.join(' ') };
-      }
-      finish({ ok: best.score >= 0.75, heard: best.heard, py: best.py });
+    let rec;
+    const finish = (r) => {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      if (activeRec === rec) activeRec = null;
+      try { rec?.abort(); } catch { /* ya parado */ }
+      resolve(r);
     };
-    rec.onerror = (e) => finish({ ok: false, error: e.error });
-    rec.onend = () => finish({ ok: false, heard: '' });
-    try { rec.start(); } catch { finish({ ok: false, error: 'start' }); }
+    const timer = setTimeout(() => finish({ ok: false, error: 'timeout' }), 9000);
+    try {
+      rec = new Recognition();
+      activeRec = rec;
+      rec.lang = 'zh-CN';
+      rec.interimResults = false;
+      rec.continuous = false;
+      rec.maxAlternatives = 5;
+      rec.onresult = (e) => {
+        const alts = [...(e.results[0] || [])].map((a) => a.transcript);
+        compare(target, alts).then(finish, () => finish({ ok: false, heard: alts[0] || '' }));
+      };
+      rec.onerror = (e) => finish({ ok: false, error: e.error || 'error' });
+      // onend llega antes que el resultado en algunos navegadores: se espera un poco.
+      rec.onend = () => setTimeout(() => finish({ ok: false, heard: '' }), 1500);
+      rec.start();
+    } catch {
+      finish({ ok: false, error: 'start' });
+    }
   });
+}
+
+async function compare(target, alts) {
+  const want = await sylls(target);
+  let best = { score: 0, heard: alts[0] || '' };
+  for (const a of alts) {
+    const got = await sylls(a);
+    const s = cleanZh(a) === cleanZh(target) ? 1 : similarity(got, want);
+    if (s > best.score) best = { score: s, heard: a, py: got.join(' ') };
+  }
+  return { ok: best.score >= 0.75, heard: best.heard, py: best.py };
 }
 
 // ---- Motor ----
@@ -327,47 +352,54 @@ export function runQuiz(root, questions, onFinish, { title = '' } = {}) {
       };
     } else {
       // Hablar: se muestra el español (y el pinyin como ayuda), se escucha el modelo y se dice en voz alta.
+      // Si el micrófono no va, siempre se puede seguir valorándose uno mismo.
       const it = q.item;
+      const mic = canListen();
+      if (mic) loadPinyin();
       qEl.innerHTML = `<div class="prompt">
           <div class="mid">${esc(it.es)}</div>
-          <div class="py big-py" id="pyhint">${esc(it.pinyin)}</div>${hzLine(it.hanzi)}
+          <div class="py big-py">${esc(it.pinyin)}</div>${hzLine(it.hanzi)}
           <div class="row" style="justify-content:center;margin-top:12px">
             <button class="btn secondary" id="model">🔊 Escuchar</button>
           </div>
         </div>
-        ${canListen()
-          ? `<button class="btn block mic" id="mic">🎤 Pulsa y habla</button><p class="note" id="heard" style="text-align:center"></p>
-             <button class="btn secondary block" id="skip" style="margin-top:8px">No puedo hablar ahora</button>`
-          : `<p class="note" style="text-align:center">Tu navegador no puede escucharte. Repite en voz alta y valora tú mismo:</p>
-             <div class="row"><button class="btn secondary" id="selfno">Me ha costado</button><button class="btn" id="selfok">Lo he dicho bien</button></div>`}`;
+        ${mic ? `<button class="btn block mic" id="mic">🎤 Pulsa y habla</button>` : ''}
+        <p class="note" id="heard" style="text-align:center">${mic ? '' : 'Repite la frase en voz alta y valora cómo te ha salido:'}</p>
+        <div class="row" id="self"><button class="btn secondary" id="selfno">Me ha costado</button><button class="btn secondary" id="selfok">Lo he dicho bien</button></div>`;
       qEl.querySelector('#model').onclick = () => speak(it.hanzi);
       setTimeout(() => speak(it.hanzi), 250);
-      if (canListen()) {
-        const mic = qEl.querySelector('#mic');
-        const heard = qEl.querySelector('#heard');
+      const self = qEl.querySelector('#self');
+      const micBtn = qEl.querySelector('#mic');
+      const heard = qEl.querySelector('#heard');
+      const end = (ok, extra) => { stopListening(); if (micBtn) micBtn.hidden = true; self.hidden = true; answered(ok, extra); };
+      qEl.querySelector('#selfok').onclick = () => end(true);
+      qEl.querySelector('#selfno').onclick = () => end(false);
+      if (micBtn) {
         let tries = 0;
-        mic.onclick = async () => {
+        let listening = false;
+        micBtn.onclick = async () => {
           if (nextBtn.style.display === '') return;
+          if (listening) { stopListening(); return; }
           window.speechSynthesis?.cancel();
-          mic.disabled = true;
-          mic.textContent = '👂 Escuchando…';
+          listening = true;
+          micBtn.textContent = '👂 Escuchando… (toca para parar)';
+          heard.textContent = '';
           const r = await listenOnce(it.hanzi);
-          mic.disabled = false;
-          mic.textContent = '🎤 Pulsa y habla';
+          listening = false;
+          if (nextBtn.style.display === '' || !qEl.isConnected) return;
+          micBtn.textContent = '🎤 Pulsa y habla';
+          if (r.ok) { end(true, ' Te he entendido bien.'); return; }
           tries++;
-          if (r.error === 'not-allowed' || r.error === 'service-not-allowed') {
-            heard.textContent = 'Necesito permiso para usar el micrófono. Actívalo en el navegador y vuelve a intentarlo.';
+          if (['not-allowed', 'service-not-allowed', 'audio-capture', 'start', 'network'].includes(r.error)) {
+            micBtn.hidden = true;
+            heard.textContent = r.error === 'not-allowed' || r.error === 'service-not-allowed'
+              ? 'No tengo permiso para usar el micrófono. Repite en voz alta y valora cómo te ha salido:'
+              : 'El micrófono no funciona en este navegador. Repite en voz alta y valora cómo te ha salido:';
             return;
           }
-          if (r.ok) { mic.hidden = true; qEl.querySelector('#skip').hidden = true; answered(true, ' Te he entendido bien.'); return; }
           heard.textContent = r.heard ? `He entendido: ${r.py || r.heard}. Prueba otra vez.` : 'No te he oído bien. Prueba otra vez.';
-          if (tries >= 3) { mic.hidden = true; qEl.querySelector('#skip').hidden = true; answered(false); }
+          if (tries >= 3) end(false);
         };
-        qEl.querySelector('#skip').onclick = () => { mic.hidden = true; qEl.querySelector('#skip').hidden = true; answered(false); };
-      } else {
-        const hide = () => qEl.querySelectorAll('#selfno,#selfok').forEach((b) => { b.hidden = true; });
-        qEl.querySelector('#selfok').onclick = () => { hide(); answered(true); };
-        qEl.querySelector('#selfno').onclick = () => { hide(); answered(false); };
       }
     }
   };

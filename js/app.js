@@ -1,6 +1,6 @@
-import * as store from './store.js?v=3';
-import { NOTA_APROBADO } from '../firebase-config.js?v=3';
-import { ACTIVIDADES, availableActivities, buildQuestions, buildExam, runQuiz, speak, canSpeak, esc, shuffle, showHanzi, setShowHanzi, hzLine } from './activities.js?v=3';
+import * as store from './store.js?v=4';
+import { NOTA_APROBADO } from '../firebase-config.js?v=4';
+import { ACTIVIDADES, availableActivities, buildQuestions, buildExam, runQuiz, speak, canSpeak, esc, shuffle, showHanzi, setShowHanzi, hzLine, stopListening } from './activities.js?v=4';
 
 const app = document.getElementById('app');
 const userBox = document.getElementById('user-box');
@@ -299,6 +299,7 @@ function notFound() {
 // ---------- Router ----------
 function route() {
   window.speechSynthesis?.cancel();
+  stopListening();
   renderUserBox();
   if (!store.getUser()) return viewLogin();
   const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
