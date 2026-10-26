@@ -1,6 +1,6 @@
-import * as store from './store.js?v=4';
-import { NOTA_APROBADO } from '../firebase-config.js?v=4';
-import { ACTIVIDADES, availableActivities, buildQuestions, buildExam, runQuiz, speak, canSpeak, esc, shuffle, showHanzi, setShowHanzi, hzLine, stopListening } from './activities.js?v=4';
+import * as store from './store.js?v=5';
+import { NOTA_APROBADO } from '../firebase-config.js?v=5';
+import { ACTIVIDADES, availableActivities, buildQuestions, buildExam, runQuiz, speak, canSpeak, esc, shuffle, showHanzi, setShowHanzi, hzLine, stopListening } from './activities.js?v=5';
 
 const app = document.getElementById('app');
 const userBox = document.getElementById('user-box');

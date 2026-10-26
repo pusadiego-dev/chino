@@ -196,8 +196,37 @@ const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const iosStandalone = navigator.standalone === true || (/iP(hone|ad|od)/.test(navigator.userAgent) && matchMedia('(display-mode: standalone)').matches);
 export const canListen = () => !!Recognition && !iosStandalone;
 let activeRec = null;
+// Plan B para cualquier móvil: grabarse y escucharse.
+export const canRecord = () => !!(navigator.mediaDevices?.getUserMedia && window.MediaRecorder);
+let activeRecorder = null;
 // Para el micrófono si se sale del ejercicio.
-export function stopListening() { try { activeRec?.abort(); } catch { /* ya parado */ } activeRec = null; }
+export function stopListening() {
+  try { activeRec?.abort(); } catch { /* ya parado */ }
+  activeRec = null;
+  try { if (activeRecorder?.state === 'recording') activeRecorder.stop(); } catch { /* ya parado */ }
+  activeRecorder = null;
+}
+
+// Graba hasta `max` ms (o hasta llamar a stopListening) y devuelve una URL con el audio, o null si falla.
+async function recordVoice(max = 7000) {
+  let stream;
+  try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); } catch { return { error: 'not-allowed' }; }
+  return new Promise((resolve) => {
+    const chunks = [];
+    let rec;
+    try { rec = new MediaRecorder(stream); } catch { stream.getTracks().forEach((t) => t.stop()); resolve({ error: 'start' }); return; }
+    activeRecorder = rec;
+    const timer = setTimeout(() => { if (rec.state === 'recording') rec.stop(); }, max);
+    rec.ondataavailable = (e) => { if (e.data.size) chunks.push(e.data); };
+    rec.onstop = () => {
+      clearTimeout(timer);
+      stream.getTracks().forEach((t) => t.stop());
+      if (activeRecorder === rec) activeRecorder = null;
+      resolve(chunks.length ? { url: URL.createObjectURL(new Blob(chunks, { type: rec.mimeType || 'audio/mp4' })) } : { error: 'empty' });
+    };
+    rec.start();
+  });
+}
 
 let pinyinLib = null;
 const loadPinyin = () => (pinyinLib ??= import('./vendor/pinyin-pro.mjs').catch(() => null));
@@ -355,6 +384,7 @@ export function runQuiz(root, questions, onFinish, { title = '' } = {}) {
       // Si el micrófono no va, siempre se puede seguir valorándose uno mismo.
       const it = q.item;
       const mic = canListen();
+      const grabar = !mic && canRecord();
       if (mic) loadPinyin();
       qEl.innerHTML = `<div class="prompt">
           <div class="mid">${esc(it.es)}</div>
@@ -364,14 +394,51 @@ export function runQuiz(root, questions, onFinish, { title = '' } = {}) {
           </div>
         </div>
         ${mic ? `<button class="btn block mic" id="mic">🎤 Pulsa y habla</button>` : ''}
-        <p class="note" id="heard" style="text-align:center">${mic ? '' : 'Repite la frase en voz alta y valora cómo te ha salido:'}</p>
+        ${grabar ? `<button class="btn block mic" id="rec">🎙️ Grábate diciéndolo</button>
+          <button class="btn secondary block" id="play" hidden style="margin-top:8px">▶ Escúchate</button>` : ''}
+        <p class="note" id="heard" style="text-align:center">${mic ? '' : grabar
+          ? 'Grábate, compara tu voz con el audio y valora cómo te ha salido.'
+          : 'Repite la frase en voz alta y valora cómo te ha salido:'}</p>
         <div class="row" id="self"><button class="btn secondary" id="selfno">Me ha costado</button><button class="btn secondary" id="selfok">Lo he dicho bien</button></div>`;
       qEl.querySelector('#model').onclick = () => speak(it.hanzi);
       setTimeout(() => speak(it.hanzi), 250);
       const self = qEl.querySelector('#self');
       const micBtn = qEl.querySelector('#mic');
       const heard = qEl.querySelector('#heard');
-      const end = (ok, extra) => { stopListening(); if (micBtn) micBtn.hidden = true; self.hidden = true; answered(ok, extra); };
+      const recBtn = qEl.querySelector('#rec');
+      const playBtn = qEl.querySelector('#play');
+      const end = (ok, extra) => {
+        stopListening();
+        [micBtn, recBtn, playBtn].forEach((b) => { if (b) b.hidden = true; });
+        self.hidden = true;
+        answered(ok, extra);
+      };
+      if (recBtn) {
+        let recording = false;
+        let voice = null;
+        playBtn.onclick = () => { if (voice) { window.speechSynthesis?.cancel(); new Audio(voice).play().catch(() => {}); } };
+        recBtn.onclick = async () => {
+          if (recording) { stopListening(); return; }
+          window.speechSynthesis?.cancel();
+          recording = true;
+          recBtn.textContent = '⏺ Grabando… (toca para parar)';
+          const r = await recordVoice();
+          recording = false;
+          if (!qEl.isConnected) return;
+          recBtn.textContent = '🎙️ Grábate otra vez';
+          if (r.url) {
+            if (voice) URL.revokeObjectURL(voice);
+            voice = r.url;
+            playBtn.hidden = false;
+            heard.textContent = 'Escucha tu voz y el audio (🔊) y valora cómo te ha salido.';
+          } else {
+            recBtn.hidden = true;
+            heard.textContent = r.error === 'not-allowed'
+              ? 'No tengo permiso para usar el micrófono. Repite en voz alta y valora cómo te ha salido:'
+              : 'No he podido grabar. Repite en voz alta y valora cómo te ha salido:';
+          }
+        };
+      }
       qEl.querySelector('#selfok').onclick = () => end(true);
       qEl.querySelector('#selfno').onclick = () => end(false);
       if (micBtn) {

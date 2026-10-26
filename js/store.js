@@ -1,6 +1,6 @@
 // Guarda usuarios y progreso. Usa Firebase si está configurado;
 // si no, guarda en localStorage (solo en este dispositivo).
-import { firebaseConfig } from '../firebase-config.js?v=4';
+import { firebaseConfig } from '../firebase-config.js?v=5';
 
 const FB = 'https://www.gstatic.com/firebasejs/10.12.2';
 

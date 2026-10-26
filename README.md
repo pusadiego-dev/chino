@@ -34,7 +34,7 @@ Formato:
 - `numero` decide el orden y el desbloqueo.
 - `palabras` es la frase troceada; al unirlas debe dar exactamente `hanzi`.
 - `palabrasPinyin` es el pinyin de cada trozo de `palabras`, en el mismo orden. Es lo que se ordena en el ejercicio de ordenar frases.
-- El ejercicio de hablar usa el reconocimiento de voz del navegador (funciona en Chrome para Android y en Safari para iPhone). Si no está disponible, la persona repite en voz alta y se valora ella misma.
+- El ejercicio de hablar usa el reconocimiento de voz del navegador para corregir solo (Chrome en Android, Safari en iPhone). Donde no existe (por ejemplo Chrome en iPhone o Firefox), la persona se graba, se escucha y se valora ella misma.
 - No cambies el `id` de una lección ya usada: el progreso se guarda con él.
 
 ## Configurar Firebase (cuentas y resultados en la nube, gratis)
