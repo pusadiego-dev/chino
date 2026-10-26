@@ -5,64 +5,364 @@
   "tituloChino": "你叫什么名字",
   "resumen": "Preguntar y decir el nombre, la profesión y la nacionalidad. Frases con 是, preguntas con 吗 y con 什么.",
   "vocabulario": [
-    { "hanzi": "叫", "pinyin": "jiào", "es": "llamarse, llamar" },
-    { "hanzi": "什么", "pinyin": "shénme", "es": "qué" },
-    { "hanzi": "名字", "pinyin": "míngzi", "es": "nombre" },
-    { "hanzi": "我", "pinyin": "wǒ", "es": "yo, me" },
-    { "hanzi": "是", "pinyin": "shì", "es": "ser" },
-    { "hanzi": "老师", "pinyin": "lǎoshī", "es": "profesor/a" },
-    { "hanzi": "吗", "pinyin": "ma", "es": "partícula de pregunta (al final)" },
-    { "hanzi": "学生", "pinyin": "xuésheng", "es": "estudiante" },
-    { "hanzi": "人", "pinyin": "rén", "es": "persona" },
-    { "hanzi": "中国", "pinyin": "Zhōngguó", "es": "China" },
-    { "hanzi": "美国", "pinyin": "Měiguó", "es": "Estados Unidos" },
-    { "hanzi": "中国人", "pinyin": "Zhōngguó rén", "es": "chino (persona)" },
-    { "hanzi": "美国人", "pinyin": "Měiguó rén", "es": "estadounidense" },
-    { "hanzi": "李月", "pinyin": "Lǐ Yuè", "es": "Li Yue (nombre de persona)" },
-    { "hanzi": "这", "pinyin": "zhè", "es": "esto, este" },
-    { "hanzi": "书", "pinyin": "shū", "es": "libro" },
-    { "hanzi": "他", "pinyin": "tā", "es": "él" },
-    { "hanzi": "门", "pinyin": "mén", "es": "puerta", "nota": "trazo 横折钩" },
-    { "hanzi": "月", "pinyin": "yuè", "es": "luna, mes", "nota": "carácter pictográfico" },
-    { "hanzi": "心", "pinyin": "xīn", "es": "corazón", "nota": "carácter pictográfico" },
-    { "hanzi": "中", "pinyin": "zhōng", "es": "medio, centro", "nota": "carácter pictográfico" }
+    {
+      "hanzi": "叫",
+      "pinyin": "jiào",
+      "es": "llamarse, llamar"
+    },
+    {
+      "hanzi": "什么",
+      "pinyin": "shénme",
+      "es": "qué"
+    },
+    {
+      "hanzi": "名字",
+      "pinyin": "míngzi",
+      "es": "nombre"
+    },
+    {
+      "hanzi": "我",
+      "pinyin": "wǒ",
+      "es": "yo, me"
+    },
+    {
+      "hanzi": "是",
+      "pinyin": "shì",
+      "es": "ser"
+    },
+    {
+      "hanzi": "老师",
+      "pinyin": "lǎoshī",
+      "es": "profesor/a"
+    },
+    {
+      "hanzi": "吗",
+      "pinyin": "ma",
+      "es": "partícula de pregunta (al final)"
+    },
+    {
+      "hanzi": "学生",
+      "pinyin": "xuésheng",
+      "es": "estudiante"
+    },
+    {
+      "hanzi": "人",
+      "pinyin": "rén",
+      "es": "persona"
+    },
+    {
+      "hanzi": "中国",
+      "pinyin": "Zhōngguó",
+      "es": "China"
+    },
+    {
+      "hanzi": "美国",
+      "pinyin": "Měiguó",
+      "es": "Estados Unidos"
+    },
+    {
+      "hanzi": "中国人",
+      "pinyin": "Zhōngguó rén",
+      "es": "chino (persona)"
+    },
+    {
+      "hanzi": "美国人",
+      "pinyin": "Měiguó rén",
+      "es": "estadounidense"
+    },
+    {
+      "hanzi": "李月",
+      "pinyin": "Lǐ Yuè",
+      "es": "Li Yue (nombre de persona)"
+    },
+    {
+      "hanzi": "这",
+      "pinyin": "zhè",
+      "es": "esto, este"
+    },
+    {
+      "hanzi": "书",
+      "pinyin": "shū",
+      "es": "libro"
+    },
+    {
+      "hanzi": "他",
+      "pinyin": "tā",
+      "es": "él"
+    },
+    {
+      "hanzi": "门",
+      "pinyin": "mén",
+      "es": "puerta",
+      "nota": "trazo 横折钩"
+    },
+    {
+      "hanzi": "月",
+      "pinyin": "yuè",
+      "es": "luna, mes",
+      "nota": "carácter pictográfico"
+    },
+    {
+      "hanzi": "心",
+      "pinyin": "xīn",
+      "es": "corazón",
+      "nota": "carácter pictográfico"
+    },
+    {
+      "hanzi": "中",
+      "pinyin": "zhōng",
+      "es": "medio, centro",
+      "nota": "carácter pictográfico"
+    }
   ],
   "frases": [
-    { "hanzi": "你叫什么名字？", "pinyin": "Nǐ jiào shénme míngzi?", "es": "¿Cómo te llamas?", "palabras": ["你", "叫", "什么", "名字", "？"] },
-    { "hanzi": "我叫李月。", "pinyin": "Wǒ jiào Lǐ Yuè.", "es": "Me llamo Li Yue.", "palabras": ["我", "叫", "李月", "。"] },
-    { "hanzi": "你是老师吗？", "pinyin": "Nǐ shì lǎoshī ma?", "es": "¿Eres profesor?", "palabras": ["你", "是", "老师", "吗", "？"] },
-    { "hanzi": "我不是老师，我是学生。", "pinyin": "Wǒ bú shì lǎoshī, wǒ shì xuésheng.", "es": "No soy profesor, soy estudiante.", "palabras": ["我", "不", "是", "老师", "，", "我", "是", "学生", "。"] },
-    { "hanzi": "你是中国人吗？", "pinyin": "Nǐ shì Zhōngguó rén ma?", "es": "¿Eres chino?", "palabras": ["你", "是", "中国", "人", "吗", "？"] },
-    { "hanzi": "我不是中国人，我是美国人。", "pinyin": "Wǒ bú shì Zhōngguó rén, wǒ shì Měiguó rén.", "es": "No soy chino, soy estadounidense.", "palabras": ["我", "不", "是", "中国", "人", "，", "我", "是", "美国", "人", "。"] },
-    { "hanzi": "这是什么？", "pinyin": "Zhè shì shénme?", "es": "¿Qué es esto?", "palabras": ["这", "是", "什么", "？"] },
-    { "hanzi": "这是什么书？", "pinyin": "Zhè shì shénme shū?", "es": "¿Qué libro es este?", "palabras": ["这", "是", "什么", "书", "？"] },
-    { "hanzi": "你是学生吗？", "pinyin": "Nǐ shì xuésheng ma?", "es": "¿Eres estudiante?", "palabras": ["你", "是", "学生", "吗", "？"] }
+    {
+      "hanzi": "你叫什么名字？",
+      "pinyin": "Nǐ jiào shénme míngzi?",
+      "es": "¿Cómo te llamas?",
+      "palabras": [
+        "你",
+        "叫",
+        "什么",
+        "名字",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "jiào",
+        "shénme",
+        "míngzi",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "我叫李月。",
+      "pinyin": "Wǒ jiào Lǐ Yuè.",
+      "es": "Me llamo Li Yue.",
+      "palabras": [
+        "我",
+        "叫",
+        "李月",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "jiào",
+        "Lǐ Yuè",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "你是老师吗？",
+      "pinyin": "Nǐ shì lǎoshī ma?",
+      "es": "¿Eres profesor?",
+      "palabras": [
+        "你",
+        "是",
+        "老师",
+        "吗",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "shì",
+        "lǎoshī",
+        "ma",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "我不是老师，我是学生。",
+      "pinyin": "Wǒ bú shì lǎoshī, wǒ shì xuésheng.",
+      "es": "No soy profesor, soy estudiante.",
+      "palabras": [
+        "我",
+        "不",
+        "是",
+        "老师",
+        "，",
+        "我",
+        "是",
+        "学生",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "bú",
+        "shì",
+        "lǎoshī",
+        "，",
+        "wǒ",
+        "shì",
+        "xuésheng",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "你是中国人吗？",
+      "pinyin": "Nǐ shì Zhōngguó rén ma?",
+      "es": "¿Eres chino?",
+      "palabras": [
+        "你",
+        "是",
+        "中国",
+        "人",
+        "吗",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "shì",
+        "Zhōngguó",
+        "rén",
+        "ma",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "我不是中国人，我是美国人。",
+      "pinyin": "Wǒ bú shì Zhōngguó rén, wǒ shì Měiguó rén.",
+      "es": "No soy chino, soy estadounidense.",
+      "palabras": [
+        "我",
+        "不",
+        "是",
+        "中国",
+        "人",
+        "，",
+        "我",
+        "是",
+        "美国",
+        "人",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "bú",
+        "shì",
+        "Zhōngguó",
+        "rén",
+        "，",
+        "wǒ",
+        "shì",
+        "Měiguó",
+        "rén",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "这是什么？",
+      "pinyin": "Zhè shì shénme?",
+      "es": "¿Qué es esto?",
+      "palabras": [
+        "这",
+        "是",
+        "什么",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Zhè",
+        "shì",
+        "shénme",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "这是什么书？",
+      "pinyin": "Zhè shì shénme shū?",
+      "es": "¿Qué libro es este?",
+      "palabras": [
+        "这",
+        "是",
+        "什么",
+        "书",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Zhè",
+        "shì",
+        "shénme",
+        "shū",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "你是学生吗？",
+      "pinyin": "Nǐ shì xuésheng ma?",
+      "es": "¿Eres estudiante?",
+      "palabras": [
+        "你",
+        "是",
+        "学生",
+        "吗",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "shì",
+        "xuésheng",
+        "ma",
+        "？"
+      ]
+    }
   ],
   "gramatica": [
     {
       "titulo": "El pronombre interrogativo 什么",
       "explicacion": "什么 (qué) pregunta por algo. Va en el lugar de lo que se pregunta, solo o delante de un sustantivo. El orden de la frase no cambia.",
       "ejemplos": [
-        { "hanzi": "你叫什么名字？", "pinyin": "Nǐ jiào shénme míngzi?", "es": "¿Cómo te llamas?" },
-        { "hanzi": "这是什么？", "pinyin": "Zhè shì shénme?", "es": "¿Qué es esto?" },
-        { "hanzi": "这是什么书？", "pinyin": "Zhè shì shénme shū?", "es": "¿Qué libro es este?" }
+        {
+          "hanzi": "你叫什么名字？",
+          "pinyin": "Nǐ jiào shénme míngzi?",
+          "es": "¿Cómo te llamas?"
+        },
+        {
+          "hanzi": "这是什么？",
+          "pinyin": "Zhè shì shénme?",
+          "es": "¿Qué es esto?"
+        },
+        {
+          "hanzi": "这是什么书？",
+          "pinyin": "Zhè shì shénme shū?",
+          "es": "¿Qué libro es este?"
+        }
       ]
     },
     {
       "titulo": "Frases con 是",
       "explicacion": "Sujeto + 是 + sustantivo dice qué es o a qué pertenece alguien o algo. Para negar se pone 不 delante de 是: 不是 (bú shì).",
       "ejemplos": [
-        { "hanzi": "李月是老师。", "pinyin": "Lǐ Yuè shì lǎoshī.", "es": "Li Yue es profesora." },
-        { "hanzi": "我是美国人。", "pinyin": "Wǒ shì Měiguó rén.", "es": "Soy estadounidense." },
-        { "hanzi": "我不是老师。", "pinyin": "Wǒ bú shì lǎoshī.", "es": "No soy profesor." }
+        {
+          "hanzi": "李月是老师。",
+          "pinyin": "Lǐ Yuè shì lǎoshī.",
+          "es": "Li Yue es profesora."
+        },
+        {
+          "hanzi": "我是美国人。",
+          "pinyin": "Wǒ shì Měiguó rén.",
+          "es": "Soy estadounidense."
+        },
+        {
+          "hanzi": "我不是老师。",
+          "pinyin": "Wǒ bú shì lǎoshī.",
+          "es": "No soy profesor."
+        }
       ]
     },
     {
       "titulo": "Preguntas con 吗",
       "explicacion": "Añadiendo 吗 al final de una frase afirmativa se convierte en una pregunta de sí o no.",
       "ejemplos": [
-        { "hanzi": "你是美国人吗？", "pinyin": "Nǐ shì Měiguó rén ma?", "es": "¿Eres estadounidense?" },
-        { "hanzi": "你是老师吗？", "pinyin": "Nǐ shì lǎoshī ma?", "es": "¿Eres profesor?" }
+        {
+          "hanzi": "你是美国人吗？",
+          "pinyin": "Nǐ shì Měiguó rén ma?",
+          "es": "¿Eres estadounidense?"
+        },
+        {
+          "hanzi": "你是老师吗？",
+          "pinyin": "Nǐ shì lǎoshī ma?",
+          "es": "¿Eres profesor?"
+        }
       ]
     },
     {

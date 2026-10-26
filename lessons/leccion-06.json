@@ -5,73 +5,465 @@
   "tituloChino": "我会说汉语",
   "resumen": "Decir lo que sabes hacer: hablar, escribir, leer, cocinar. El verbo modal 会, frases con adjetivo y preguntar cómo se hace algo con 怎么.",
   "vocabulario": [
-    { "hanzi": "会", "pinyin": "huì", "es": "saber (hacer algo aprendido), poder" },
-    { "hanzi": "说", "pinyin": "shuō", "es": "hablar, decir" },
-    { "hanzi": "妈妈", "pinyin": "māma", "es": "mamá" },
-    { "hanzi": "菜", "pinyin": "cài", "es": "plato, cocina (comida)" },
-    { "hanzi": "很", "pinyin": "hěn", "es": "muy" },
-    { "hanzi": "好吃", "pinyin": "hǎochī", "es": "rico, sabroso" },
-    { "hanzi": "做", "pinyin": "zuò", "es": "hacer, preparar" },
-    { "hanzi": "写", "pinyin": "xiě", "es": "escribir" },
-    { "hanzi": "汉字", "pinyin": "Hànzì", "es": "carácter chino" },
-    { "hanzi": "字", "pinyin": "zì", "es": "carácter, letra" },
-    { "hanzi": "怎么", "pinyin": "zěnme", "es": "cómo" },
-    { "hanzi": "读", "pinyin": "dú", "es": "leer" },
-    { "hanzi": "中国菜", "pinyin": "Zhōngguó cài", "es": "comida china" },
-    { "hanzi": "说汉语", "pinyin": "shuō Hànyǔ", "es": "hablar chino" },
-    { "hanzi": "写汉字", "pinyin": "xiě Hànzì", "es": "escribir caracteres chinos" },
-    { "hanzi": "这个", "pinyin": "zhège", "es": "este, esta" },
-    { "hanzi": "都", "pinyin": "dōu", "es": "todos, ambos" },
-    { "hanzi": "东", "pinyin": "dōng", "es": "este (punto cardinal)", "nota": "carácter de un solo componente" },
-    { "hanzi": "西", "pinyin": "xī", "es": "oeste", "nota": "carácter de un solo componente" },
-    { "hanzi": "钱", "pinyin": "qián", "es": "dinero" },
-    { "hanzi": "打", "pinyin": "dǎ", "es": "golpear; jugar (a la pelota)" },
-    { "hanzi": "公园", "pinyin": "gōngyuán", "es": "parque", "nota": "práctica de tonos" },
-    { "hanzi": "车站", "pinyin": "chēzhàn", "es": "estación (de autobús/tren)", "nota": "práctica de tonos" },
-    { "hanzi": "今天", "pinyin": "jīntiān", "es": "hoy", "nota": "práctica de tonos" },
-    { "hanzi": "公司", "pinyin": "gōngsī", "es": "empresa", "nota": "práctica de tonos" },
-    { "hanzi": "开始", "pinyin": "kāishǐ", "es": "empezar", "nota": "práctica de tonos" },
-    { "hanzi": "高兴", "pinyin": "gāoxìng", "es": "contento", "nota": "práctica de tonos" }
+    {
+      "hanzi": "会",
+      "pinyin": "huì",
+      "es": "saber (hacer algo aprendido), poder"
+    },
+    {
+      "hanzi": "说",
+      "pinyin": "shuō",
+      "es": "hablar, decir"
+    },
+    {
+      "hanzi": "妈妈",
+      "pinyin": "māma",
+      "es": "mamá"
+    },
+    {
+      "hanzi": "菜",
+      "pinyin": "cài",
+      "es": "plato, cocina (comida)"
+    },
+    {
+      "hanzi": "很",
+      "pinyin": "hěn",
+      "es": "muy"
+    },
+    {
+      "hanzi": "好吃",
+      "pinyin": "hǎochī",
+      "es": "rico, sabroso"
+    },
+    {
+      "hanzi": "做",
+      "pinyin": "zuò",
+      "es": "hacer, preparar"
+    },
+    {
+      "hanzi": "写",
+      "pinyin": "xiě",
+      "es": "escribir"
+    },
+    {
+      "hanzi": "汉字",
+      "pinyin": "Hànzì",
+      "es": "carácter chino"
+    },
+    {
+      "hanzi": "字",
+      "pinyin": "zì",
+      "es": "carácter, letra"
+    },
+    {
+      "hanzi": "怎么",
+      "pinyin": "zěnme",
+      "es": "cómo"
+    },
+    {
+      "hanzi": "读",
+      "pinyin": "dú",
+      "es": "leer"
+    },
+    {
+      "hanzi": "中国菜",
+      "pinyin": "Zhōngguó cài",
+      "es": "comida china"
+    },
+    {
+      "hanzi": "说汉语",
+      "pinyin": "shuō Hànyǔ",
+      "es": "hablar chino"
+    },
+    {
+      "hanzi": "写汉字",
+      "pinyin": "xiě Hànzì",
+      "es": "escribir caracteres chinos"
+    },
+    {
+      "hanzi": "这个",
+      "pinyin": "zhège",
+      "es": "este, esta"
+    },
+    {
+      "hanzi": "都",
+      "pinyin": "dōu",
+      "es": "todos, ambos"
+    },
+    {
+      "hanzi": "东",
+      "pinyin": "dōng",
+      "es": "este (punto cardinal)",
+      "nota": "carácter de un solo componente"
+    },
+    {
+      "hanzi": "西",
+      "pinyin": "xī",
+      "es": "oeste",
+      "nota": "carácter de un solo componente"
+    },
+    {
+      "hanzi": "钱",
+      "pinyin": "qián",
+      "es": "dinero"
+    },
+    {
+      "hanzi": "打",
+      "pinyin": "dǎ",
+      "es": "golpear; jugar (a la pelota)"
+    },
+    {
+      "hanzi": "公园",
+      "pinyin": "gōngyuán",
+      "es": "parque",
+      "nota": "práctica de tonos"
+    },
+    {
+      "hanzi": "车站",
+      "pinyin": "chēzhàn",
+      "es": "estación (de autobús/tren)",
+      "nota": "práctica de tonos"
+    },
+    {
+      "hanzi": "今天",
+      "pinyin": "jīntiān",
+      "es": "hoy",
+      "nota": "práctica de tonos"
+    },
+    {
+      "hanzi": "公司",
+      "pinyin": "gōngsī",
+      "es": "empresa",
+      "nota": "práctica de tonos"
+    },
+    {
+      "hanzi": "开始",
+      "pinyin": "kāishǐ",
+      "es": "empezar",
+      "nota": "práctica de tonos"
+    },
+    {
+      "hanzi": "高兴",
+      "pinyin": "gāoxìng",
+      "es": "contento",
+      "nota": "práctica de tonos"
+    }
   ],
   "frases": [
-    { "hanzi": "你会说汉语吗？", "pinyin": "Nǐ huì shuō Hànyǔ ma?", "es": "¿Sabes hablar chino?", "palabras": ["你", "会", "说", "汉语", "吗", "？"] },
-    { "hanzi": "我会说汉语。", "pinyin": "Wǒ huì shuō Hànyǔ.", "es": "Sé hablar chino.", "palabras": ["我", "会", "说", "汉语", "。"] },
-    { "hanzi": "你妈妈会说汉语吗？", "pinyin": "Nǐ māma huì shuō Hànyǔ ma?", "es": "¿Tu madre sabe hablar chino?", "palabras": ["你", "妈妈", "会", "说", "汉语", "吗", "？"] },
-    { "hanzi": "她不会说。", "pinyin": "Tā bú huì shuō.", "es": "No sabe.", "palabras": ["她", "不", "会", "说", "。"] },
-    { "hanzi": "中国菜好吃吗？", "pinyin": "Zhōngguó cài hǎochī ma?", "es": "¿La comida china está rica?", "palabras": ["中国", "菜", "好吃", "吗", "？"] },
-    { "hanzi": "中国菜很好吃。", "pinyin": "Zhōngguó cài hěn hǎochī.", "es": "La comida china está muy rica.", "palabras": ["中国", "菜", "很", "好吃", "。"] },
-    { "hanzi": "你会做中国菜吗？", "pinyin": "Nǐ huì zuò Zhōngguó cài ma?", "es": "¿Sabes hacer comida china?", "palabras": ["你", "会", "做", "中国", "菜", "吗", "？"] },
-    { "hanzi": "我不会做。", "pinyin": "Wǒ bú huì zuò.", "es": "No sé hacerla.", "palabras": ["我", "不", "会", "做", "。"] },
-    { "hanzi": "你会写汉字吗？", "pinyin": "Nǐ huì xiě Hànzì ma?", "es": "¿Sabes escribir caracteres chinos?", "palabras": ["你", "会", "写", "汉字", "吗", "？"] },
-    { "hanzi": "这个字怎么写？", "pinyin": "Zhège zì zěnme xiě?", "es": "¿Cómo se escribe este carácter?", "palabras": ["这个", "字", "怎么", "写", "？"] },
-    { "hanzi": "对不起，这个字我会读，不会写。", "pinyin": "Duìbuqǐ, zhège zì wǒ huì dú, bú huì xiě.", "es": "Lo siento, este carácter sé leerlo pero no escribirlo.", "palabras": ["对不起", "，", "这个", "字", "我", "会", "读", "，", "不", "会", "写", "。"] },
-    { "hanzi": "我们都会说汉语。", "pinyin": "Wǒmen dōu huì shuō Hànyǔ.", "es": "Todos sabemos hablar chino.", "palabras": ["我们", "都", "会", "说", "汉语", "。"] }
+    {
+      "hanzi": "你会说汉语吗？",
+      "pinyin": "Nǐ huì shuō Hànyǔ ma?",
+      "es": "¿Sabes hablar chino?",
+      "palabras": [
+        "你",
+        "会",
+        "说",
+        "汉语",
+        "吗",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "huì",
+        "shuō",
+        "Hànyǔ",
+        "ma",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "我会说汉语。",
+      "pinyin": "Wǒ huì shuō Hànyǔ.",
+      "es": "Sé hablar chino.",
+      "palabras": [
+        "我",
+        "会",
+        "说",
+        "汉语",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "huì",
+        "shuō",
+        "Hànyǔ",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "你妈妈会说汉语吗？",
+      "pinyin": "Nǐ māma huì shuō Hànyǔ ma?",
+      "es": "¿Tu madre sabe hablar chino?",
+      "palabras": [
+        "你",
+        "妈妈",
+        "会",
+        "说",
+        "汉语",
+        "吗",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "māma",
+        "huì",
+        "shuō",
+        "Hànyǔ",
+        "ma",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "她不会说。",
+      "pinyin": "Tā bú huì shuō.",
+      "es": "No sabe.",
+      "palabras": [
+        "她",
+        "不",
+        "会",
+        "说",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Tā",
+        "bú",
+        "huì",
+        "shuō",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "中国菜好吃吗？",
+      "pinyin": "Zhōngguó cài hǎochī ma?",
+      "es": "¿La comida china está rica?",
+      "palabras": [
+        "中国",
+        "菜",
+        "好吃",
+        "吗",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Zhōngguó",
+        "cài",
+        "hǎochī",
+        "ma",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "中国菜很好吃。",
+      "pinyin": "Zhōngguó cài hěn hǎochī.",
+      "es": "La comida china está muy rica.",
+      "palabras": [
+        "中国",
+        "菜",
+        "很",
+        "好吃",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Zhōngguó",
+        "cài",
+        "hěn",
+        "hǎochī",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "你会做中国菜吗？",
+      "pinyin": "Nǐ huì zuò Zhōngguó cài ma?",
+      "es": "¿Sabes hacer comida china?",
+      "palabras": [
+        "你",
+        "会",
+        "做",
+        "中国",
+        "菜",
+        "吗",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "huì",
+        "zuò",
+        "Zhōngguó",
+        "cài",
+        "ma",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "我不会做。",
+      "pinyin": "Wǒ bú huì zuò.",
+      "es": "No sé hacerla.",
+      "palabras": [
+        "我",
+        "不",
+        "会",
+        "做",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "bú",
+        "huì",
+        "zuò",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "你会写汉字吗？",
+      "pinyin": "Nǐ huì xiě Hànzì ma?",
+      "es": "¿Sabes escribir caracteres chinos?",
+      "palabras": [
+        "你",
+        "会",
+        "写",
+        "汉字",
+        "吗",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "huì",
+        "xiě",
+        "Hànzì",
+        "ma",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "这个字怎么写？",
+      "pinyin": "Zhège zì zěnme xiě?",
+      "es": "¿Cómo se escribe este carácter?",
+      "palabras": [
+        "这个",
+        "字",
+        "怎么",
+        "写",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Zhège",
+        "zì",
+        "zěnme",
+        "xiě",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "对不起，这个字我会读，不会写。",
+      "pinyin": "Duìbuqǐ, zhège zì wǒ huì dú, bú huì xiě.",
+      "es": "Lo siento, este carácter sé leerlo pero no escribirlo.",
+      "palabras": [
+        "对不起",
+        "，",
+        "这个",
+        "字",
+        "我",
+        "会",
+        "读",
+        "，",
+        "不",
+        "会",
+        "写",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Duìbuqǐ",
+        "，",
+        "zhège",
+        "zì",
+        "wǒ",
+        "huì",
+        "dú",
+        "，",
+        "bú",
+        "huì",
+        "xiě",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "我们都会说汉语。",
+      "pinyin": "Wǒmen dōu huì shuō Hànyǔ.",
+      "es": "Todos sabemos hablar chino.",
+      "palabras": [
+        "我们",
+        "都",
+        "会",
+        "说",
+        "汉语",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒmen",
+        "dōu",
+        "huì",
+        "shuō",
+        "Hànyǔ",
+        "。"
+      ]
+    }
   ],
   "gramatica": [
     {
       "titulo": "El verbo modal 会 (1)",
       "explicacion": "会 + verbo indica una habilidad que se ha aprendido (saber hacer algo). La negación es 不会.",
       "ejemplos": [
-        { "hanzi": "我会写汉字。", "pinyin": "Wǒ huì xiě Hànzì.", "es": "Sé escribir caracteres chinos." },
-        { "hanzi": "我不会做中国菜。", "pinyin": "Wǒ bú huì zuò Zhōngguó cài.", "es": "No sé hacer comida china." },
-        { "hanzi": "你妈妈会说汉语吗？", "pinyin": "Nǐ māma huì shuō Hànyǔ ma?", "es": "¿Tu madre sabe hablar chino?" }
+        {
+          "hanzi": "我会写汉字。",
+          "pinyin": "Wǒ huì xiě Hànzì.",
+          "es": "Sé escribir caracteres chinos."
+        },
+        {
+          "hanzi": "我不会做中国菜。",
+          "pinyin": "Wǒ bú huì zuò Zhōngguó cài.",
+          "es": "No sé hacer comida china."
+        },
+        {
+          "hanzi": "你妈妈会说汉语吗？",
+          "pinyin": "Nǐ māma huì shuō Hànyǔ ma?",
+          "es": "¿Tu madre sabe hablar chino?"
+        }
       ]
     },
     {
       "titulo": "Frases con adjetivo",
       "explicacion": "Sujeto + adverbio de grado (normalmente 很) + adjetivo describe cómo es algo. No se usa 是. La negación es sujeto + 不 + adjetivo.",
       "ejemplos": [
-        { "hanzi": "我很好。", "pinyin": "Wǒ hěn hǎo.", "es": "Estoy muy bien." },
-        { "hanzi": "我妈妈的汉语不好。", "pinyin": "Wǒ māma de Hànyǔ bù hǎo.", "es": "El chino de mi madre no es bueno." },
-        { "hanzi": "中国菜很好吃。", "pinyin": "Zhōngguó cài hěn hǎochī.", "es": "La comida china está muy rica." }
+        {
+          "hanzi": "我很好。",
+          "pinyin": "Wǒ hěn hǎo.",
+          "es": "Estoy muy bien."
+        },
+        {
+          "hanzi": "我妈妈的汉语不好。",
+          "pinyin": "Wǒ māma de Hànyǔ bù hǎo.",
+          "es": "El chino de mi madre no es bueno."
+        },
+        {
+          "hanzi": "中国菜很好吃。",
+          "pinyin": "Zhōngguó cài hěn hǎochī.",
+          "es": "La comida china está muy rica."
+        }
       ]
     },
     {
       "titulo": "El interrogativo 怎么 (1)",
       "explicacion": "怎么 + verbo pregunta cómo se hace algo.",
       "ejemplos": [
-        { "hanzi": "这个汉字怎么读？", "pinyin": "Zhège Hànzì zěnme dú?", "es": "¿Cómo se lee este carácter?" },
-        { "hanzi": "你的汉语名字怎么写？", "pinyin": "Nǐ de Hànyǔ míngzi zěnme xiě?", "es": "¿Cómo se escribe tu nombre chino?" }
+        {
+          "hanzi": "这个汉字怎么读？",
+          "pinyin": "Zhège Hànzì zěnme dú?",
+          "es": "¿Cómo se lee este carácter?"
+        },
+        {
+          "hanzi": "你的汉语名字怎么写？",
+          "pinyin": "Nǐ de Hànyǔ míngzi zěnme xiě?",
+          "es": "¿Cómo se escribe tu nombre chino?"
+        }
       ]
     },
     {

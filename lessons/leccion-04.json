@@ -5,63 +5,388 @@
   "tituloChino": "她是我的汉语老师",
   "resumen": "Presentar a otras personas y preguntar quiénes son y de dónde son. Preguntas con 谁 y 哪, la partícula 的 y la pregunta corta con 呢.",
   "vocabulario": [
-    { "hanzi": "她", "pinyin": "tā", "es": "ella" },
-    { "hanzi": "谁", "pinyin": "shéi", "es": "quién" },
-    { "hanzi": "的", "pinyin": "de", "es": "partícula de posesión (de)" },
-    { "hanzi": "汉语", "pinyin": "Hànyǔ", "es": "idioma chino" },
-    { "hanzi": "哪", "pinyin": "nǎ", "es": "cuál, qué (delante de sustantivo)" },
-    { "hanzi": "国", "pinyin": "guó", "es": "país" },
-    { "hanzi": "呢", "pinyin": "ne", "es": "partícula: ¿y...?" },
-    { "hanzi": "他", "pinyin": "tā", "es": "él" },
-    { "hanzi": "同学", "pinyin": "tóngxué", "es": "compañero de clase" },
-    { "hanzi": "朋友", "pinyin": "péngyou", "es": "amigo" },
-    { "hanzi": "汉语老师", "pinyin": "Hànyǔ lǎoshī", "es": "profesor/a de chino" },
-    { "hanzi": "中国朋友", "pinyin": "Zhōngguó péngyou", "es": "amigo chino" },
-    { "hanzi": "我们", "pinyin": "wǒmen", "es": "nosotros" },
-    { "hanzi": "本", "pinyin": "běn", "es": "clasificador para libros" },
-    { "hanzi": "个", "pinyin": "gè", "es": "clasificador general" },
-    { "hanzi": "七", "pinyin": "qī", "es": "siete", "nota": "carácter de un solo componente" },
-    { "hanzi": "九", "pinyin": "jiǔ", "es": "nueve" },
-    { "hanzi": "儿", "pinyin": "ér", "es": "hijo, niño", "nota": "carácter de un solo componente" },
-    { "hanzi": "几", "pinyin": "jǐ", "es": "cuántos", "nota": "carácter de un solo componente" }
+    {
+      "hanzi": "她",
+      "pinyin": "tā",
+      "es": "ella"
+    },
+    {
+      "hanzi": "谁",
+      "pinyin": "shéi",
+      "es": "quién"
+    },
+    {
+      "hanzi": "的",
+      "pinyin": "de",
+      "es": "partícula de posesión (de)"
+    },
+    {
+      "hanzi": "汉语",
+      "pinyin": "Hànyǔ",
+      "es": "idioma chino"
+    },
+    {
+      "hanzi": "哪",
+      "pinyin": "nǎ",
+      "es": "cuál, qué (delante de sustantivo)"
+    },
+    {
+      "hanzi": "国",
+      "pinyin": "guó",
+      "es": "país"
+    },
+    {
+      "hanzi": "呢",
+      "pinyin": "ne",
+      "es": "partícula: ¿y...?"
+    },
+    {
+      "hanzi": "他",
+      "pinyin": "tā",
+      "es": "él"
+    },
+    {
+      "hanzi": "同学",
+      "pinyin": "tóngxué",
+      "es": "compañero de clase"
+    },
+    {
+      "hanzi": "朋友",
+      "pinyin": "péngyou",
+      "es": "amigo"
+    },
+    {
+      "hanzi": "汉语老师",
+      "pinyin": "Hànyǔ lǎoshī",
+      "es": "profesor/a de chino"
+    },
+    {
+      "hanzi": "中国朋友",
+      "pinyin": "Zhōngguó péngyou",
+      "es": "amigo chino"
+    },
+    {
+      "hanzi": "我们",
+      "pinyin": "wǒmen",
+      "es": "nosotros"
+    },
+    {
+      "hanzi": "本",
+      "pinyin": "běn",
+      "es": "clasificador para libros"
+    },
+    {
+      "hanzi": "个",
+      "pinyin": "gè",
+      "es": "clasificador general"
+    },
+    {
+      "hanzi": "七",
+      "pinyin": "qī",
+      "es": "siete",
+      "nota": "carácter de un solo componente"
+    },
+    {
+      "hanzi": "九",
+      "pinyin": "jiǔ",
+      "es": "nueve"
+    },
+    {
+      "hanzi": "儿",
+      "pinyin": "ér",
+      "es": "hijo, niño",
+      "nota": "carácter de un solo componente"
+    },
+    {
+      "hanzi": "几",
+      "pinyin": "jǐ",
+      "es": "cuántos",
+      "nota": "carácter de un solo componente"
+    }
   ],
   "frases": [
-    { "hanzi": "她是谁？", "pinyin": "Tā shì shéi?", "es": "¿Quién es ella?", "palabras": ["她", "是", "谁", "？"] },
-    { "hanzi": "她是我的汉语老师。", "pinyin": "Tā shì wǒ de Hànyǔ lǎoshī.", "es": "Es mi profesora de chino.", "palabras": ["她", "是", "我", "的", "汉语", "老师", "。"] },
-    { "hanzi": "她叫李月。", "pinyin": "Tā jiào Lǐ Yuè.", "es": "Se llama Li Yue.", "palabras": ["她", "叫", "李月", "。"] },
-    { "hanzi": "你是哪国人？", "pinyin": "Nǐ shì nǎ guó rén?", "es": "¿De qué país eres?", "palabras": ["你", "是", "哪", "国", "人", "？"] },
-    { "hanzi": "我是美国人。你呢？", "pinyin": "Wǒ shì Měiguó rén. Nǐ ne?", "es": "Soy estadounidense. ¿Y tú?", "palabras": ["我", "是", "美国", "人", "。", "你", "呢", "？"] },
-    { "hanzi": "他是我同学。", "pinyin": "Tā shì wǒ tóngxué.", "es": "Es mi compañero de clase.", "palabras": ["他", "是", "我", "同学", "。"] },
-    { "hanzi": "她呢？她是你同学吗？", "pinyin": "Tā ne? Tā shì nǐ tóngxué ma?", "es": "¿Y ella? ¿Es tu compañera de clase?", "palabras": ["她", "呢", "？", "她", "是", "你", "同学", "吗", "？"] },
-    { "hanzi": "她不是我同学，她是我朋友。", "pinyin": "Tā bú shì wǒ tóngxué, tā shì wǒ péngyou.", "es": "No es mi compañera, es mi amiga.", "palabras": ["她", "不", "是", "我", "同学", "，", "她", "是", "我", "朋友", "。"] },
-    { "hanzi": "你的中国朋友是谁？", "pinyin": "Nǐ de Zhōngguó péngyou shì shéi?", "es": "¿Quién es tu amigo chino?", "palabras": ["你", "的", "中国", "朋友", "是", "谁", "？"] },
-    { "hanzi": "这是我的书。", "pinyin": "Zhè shì wǒ de shū.", "es": "Este es mi libro.", "palabras": ["这", "是", "我", "的", "书", "。"] }
+    {
+      "hanzi": "她是谁？",
+      "pinyin": "Tā shì shéi?",
+      "es": "¿Quién es ella?",
+      "palabras": [
+        "她",
+        "是",
+        "谁",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Tā",
+        "shì",
+        "shéi",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "她是我的汉语老师。",
+      "pinyin": "Tā shì wǒ de Hànyǔ lǎoshī.",
+      "es": "Es mi profesora de chino.",
+      "palabras": [
+        "她",
+        "是",
+        "我",
+        "的",
+        "汉语",
+        "老师",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Tā",
+        "shì",
+        "wǒ",
+        "de",
+        "Hànyǔ",
+        "lǎoshī",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "她叫李月。",
+      "pinyin": "Tā jiào Lǐ Yuè.",
+      "es": "Se llama Li Yue.",
+      "palabras": [
+        "她",
+        "叫",
+        "李月",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Tā",
+        "jiào",
+        "Lǐ Yuè",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "你是哪国人？",
+      "pinyin": "Nǐ shì nǎ guó rén?",
+      "es": "¿De qué país eres?",
+      "palabras": [
+        "你",
+        "是",
+        "哪",
+        "国",
+        "人",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "shì",
+        "nǎ",
+        "guó",
+        "rén",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "我是美国人。你呢？",
+      "pinyin": "Wǒ shì Měiguó rén. Nǐ ne?",
+      "es": "Soy estadounidense. ¿Y tú?",
+      "palabras": [
+        "我",
+        "是",
+        "美国",
+        "人",
+        "。",
+        "你",
+        "呢",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "shì",
+        "Měiguó",
+        "rén",
+        "。",
+        "Nǐ",
+        "ne",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "他是我同学。",
+      "pinyin": "Tā shì wǒ tóngxué.",
+      "es": "Es mi compañero de clase.",
+      "palabras": [
+        "他",
+        "是",
+        "我",
+        "同学",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Tā",
+        "shì",
+        "wǒ",
+        "tóngxué",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "她呢？她是你同学吗？",
+      "pinyin": "Tā ne? Tā shì nǐ tóngxué ma?",
+      "es": "¿Y ella? ¿Es tu compañera de clase?",
+      "palabras": [
+        "她",
+        "呢",
+        "？",
+        "她",
+        "是",
+        "你",
+        "同学",
+        "吗",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Tā",
+        "ne",
+        "？",
+        "Tā",
+        "shì",
+        "nǐ",
+        "tóngxué",
+        "ma",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "她不是我同学，她是我朋友。",
+      "pinyin": "Tā bú shì wǒ tóngxué, tā shì wǒ péngyou.",
+      "es": "No es mi compañera, es mi amiga.",
+      "palabras": [
+        "她",
+        "不",
+        "是",
+        "我",
+        "同学",
+        "，",
+        "她",
+        "是",
+        "我",
+        "朋友",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Tā",
+        "bú",
+        "shì",
+        "wǒ",
+        "tóngxué",
+        "，",
+        "tā",
+        "shì",
+        "wǒ",
+        "péngyou",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "你的中国朋友是谁？",
+      "pinyin": "Nǐ de Zhōngguó péngyou shì shéi?",
+      "es": "¿Quién es tu amigo chino?",
+      "palabras": [
+        "你",
+        "的",
+        "中国",
+        "朋友",
+        "是",
+        "谁",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "de",
+        "Zhōngguó",
+        "péngyou",
+        "shì",
+        "shéi",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "这是我的书。",
+      "pinyin": "Zhè shì wǒ de shū.",
+      "es": "Este es mi libro.",
+      "palabras": [
+        "这",
+        "是",
+        "我",
+        "的",
+        "书",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Zhè",
+        "shì",
+        "wǒ",
+        "de",
+        "shū",
+        "。"
+      ]
+    }
   ],
   "gramatica": [
     {
       "titulo": "Los interrogativos 谁 y 哪",
       "explicacion": "谁 (quién) pregunta por una persona y va en el lugar de la respuesta. 哪 (cuál) va delante de un clasificador o sustantivo: 哪 + clasificador/sustantivo + sustantivo.",
       "ejemplos": [
-        { "hanzi": "谁是李月？", "pinyin": "Shéi shì Lǐ Yuè?", "es": "¿Quién es Li Yue?" },
-        { "hanzi": "他是谁？", "pinyin": "Tā shì shéi?", "es": "¿Quién es él?" },
-        { "hanzi": "哪本书？", "pinyin": "Nǎ běn shū?", "es": "¿Qué libro?" },
-        { "hanzi": "哪个人？", "pinyin": "Nǎ ge rén?", "es": "¿Qué persona?" }
+        {
+          "hanzi": "谁是李月？",
+          "pinyin": "Shéi shì Lǐ Yuè?",
+          "es": "¿Quién es Li Yue?"
+        },
+        {
+          "hanzi": "他是谁？",
+          "pinyin": "Tā shì shéi?",
+          "es": "¿Quién es él?"
+        },
+        {
+          "hanzi": "哪本书？",
+          "pinyin": "Nǎ běn shū?",
+          "es": "¿Qué libro?"
+        },
+        {
+          "hanzi": "哪个人？",
+          "pinyin": "Nǎ ge rén?",
+          "es": "¿Qué persona?"
+        }
       ]
     },
     {
       "titulo": "La partícula 的",
       "explicacion": "Sustantivo/pronombre + 的 + sustantivo indica posesión. Si lo que sigue es un familiar o una persona cercana, el 的 se puede quitar: 我朋友, 我同学.",
       "ejemplos": [
-        { "hanzi": "李月是我的老师。", "pinyin": "Lǐ Yuè shì wǒ de lǎoshī.", "es": "Li Yue es mi profesora." },
-        { "hanzi": "她是我朋友。", "pinyin": "Tā shì wǒ péngyou.", "es": "Ella es mi amiga." }
+        {
+          "hanzi": "李月是我的老师。",
+          "pinyin": "Lǐ Yuè shì wǒ de lǎoshī.",
+          "es": "Li Yue es mi profesora."
+        },
+        {
+          "hanzi": "她是我朋友。",
+          "pinyin": "Tā shì wǒ péngyou.",
+          "es": "Ella es mi amiga."
+        }
       ]
     },
     {
       "titulo": "La partícula 呢 (1)",
       "explicacion": "Detrás de un sustantivo o pronombre, 呢 pregunta lo mismo que se acaba de decir sobre otra persona: «A... B呢？» = «A... ¿y B?».",
       "ejemplos": [
-        { "hanzi": "我不是老师，我是学生。你呢？", "pinyin": "Wǒ bú shì lǎoshī, wǒ shì xuésheng. Nǐ ne?", "es": "No soy profesor, soy estudiante. ¿Y tú?" },
-        { "hanzi": "她叫李月。他呢？", "pinyin": "Tā jiào Lǐ Yuè. Tā ne?", "es": "Ella se llama Li Yue. ¿Y él?" }
+        {
+          "hanzi": "我不是老师，我是学生。你呢？",
+          "pinyin": "Wǒ bú shì lǎoshī, wǒ shì xuésheng. Nǐ ne?",
+          "es": "No soy profesor, soy estudiante. ¿Y tú?"
+        },
+        {
+          "hanzi": "她叫李月。他呢？",
+          "pinyin": "Tā jiào Lǐ Yuè. Tā ne?",
+          "es": "Ella se llama Li Yue. ¿Y él?"
+        }
       ]
     },
     {

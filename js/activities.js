@@ -1,4 +1,5 @@
 // Generadores de preguntas y el motor que las ejecuta.
+// Método pinyin: se aprende escuchando, leyendo pinyin y hablando; los caracteres son opcionales.
 
 export const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -10,6 +11,16 @@ export function shuffle(arr) {
   }
   return a;
 }
+
+// ---- Preferencia: mostrar caracteres chinos ----
+export function showHanzi() {
+  try { return localStorage.getItem('chino.verCaracteres') === '1'; } catch { return false; }
+}
+export function setShowHanzi(on) {
+  try { localStorage.setItem('chino.verCaracteres', on ? '1' : '0'); } catch { /* sin almacenamiento */ }
+}
+// Línea pequeña con el carácter, solo si el usuario la ha activado.
+export const hzLine = (hanzi, cls = 'hzsmall') => (showHanzi() && hanzi ? `<div class="${cls}">${esc(hanzi)}</div>` : '');
 
 // ---- Audio (voz del navegador en chino) ----
 let zhVoice = null;
@@ -32,26 +43,58 @@ export function speak(text, rate = 0.8) {
   window.speechSynthesis.speak(u);
 }
 
-// ---- Tipos de actividad ----
-export const ACTIVIDADES = {
-  significado: { ico: '🀄', nombre: 'Significado', desc: 'Carácter → español' },
-  caracter:    { ico: '✍️', nombre: 'Carácter', desc: 'Español → carácter' },
-  pinyin:      { ico: '🔤', nombre: 'Pinyin', desc: 'Carácter → pinyin' },
-  escuchar:    { ico: '🎧', nombre: 'Escuchar', desc: 'Audio → carácter' },
-  ordenar:     { ico: '🧩', nombre: 'Ordenar frases', desc: 'Construye la frase' },
-};
+// ---- Pinyin y tonos ----
+const TONES = { a: 'āáǎà', e: 'ēéěè', i: 'īíǐì', o: 'ōóǒò', u: 'ūúǔù', ü: 'ǖǘǚǜ' };
+const MARKED = {};
+for (const [base, marks] of Object.entries(TONES)) [...marks].forEach((m, t) => { MARKED[m] = [base, t]; MARKED[m.toUpperCase()] = [base.toUpperCase(), t]; });
 
-// Elementos que se pueden preguntar: vocabulario + frases cortas.
-function items(lesson) {
-  return [...(lesson.vocabulario || []), ...(lesson.frases || [])].filter((x) => x.hanzi && x.es);
+// Quita las tildes de tono (mantiene la ü).
+export const stripTones = (py) => [...String(py || '')].map((c) => (MARKED[c] ? MARKED[c][0] : c)).join('');
+const toneless = (py) => stripTones(py).toLowerCase().replace(/[^a-zü]/g, '');
+
+// Variantes del mismo pinyin con otros tonos, para el ejercicio de tonos.
+function toneVariants(py, n = 3) {
+  const chars = [...py];
+  const pos = chars.map((c, i) => (MARKED[c] ? i : -1)).filter((i) => i >= 0);
+  if (!pos.length) return [];
+  const out = new Set();
+  for (let tries = 0; tries < 60 && out.size < n; tries++) {
+    const v = [...chars];
+    const change = shuffle(pos).slice(0, 1 + Math.floor(Math.random() * Math.min(2, pos.length)));
+    for (const i of change) {
+      const [base, t] = MARKED[chars[i]];
+      const lower = base.toLowerCase();
+      let nt = Math.floor(Math.random() * 3);
+      if (nt >= t) nt++;
+      const m = TONES[lower][nt];
+      v[i] = base === lower ? m : m.toUpperCase();
+    }
+    const s = v.join('');
+    if (s !== py) out.add(s);
+  }
+  return [...out];
 }
 
-const normPy = (p) => String(p || '').toLowerCase().replace(/[^a-zāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜü]/g, '');
+// ---- Tipos de actividad ----
+export const ACTIVIDADES = {
+  escuchar:    { ico: '🎧', nombre: 'Escuchar', desc: 'Oye y elige qué significa' },
+  tonos:       { ico: '🎵', nombre: 'Tonos', desc: 'Oye y elige los tonos' },
+  significado: { ico: '🔤', nombre: 'Leer pinyin', desc: 'Pinyin → español' },
+  decir:       { ico: '💬', nombre: '¿Cómo se dice?', desc: 'Español → pinyin' },
+  ordenar:     { ico: '🧩', nombre: 'Ordenar frases', desc: 'Construye la frase en pinyin' },
+  hablar:      { ico: '🎤', nombre: 'Hablar', desc: 'Dilo en voz alta' },
+};
 
-// Una opción incorrecta no puede ser otra forma válida de la respuesta
-// (mismo carácter, misma traducción o, para escuchar/pinyin, mismo sonido).
+// Elementos que se pueden preguntar: vocabulario + frases.
+function items(lesson) {
+  return [...(lesson.vocabulario || []), ...(lesson.frases || [])].filter((x) => x.hanzi && x.es && x.pinyin);
+}
+const orderable = (lesson) => (lesson.frases || []).filter((f) => (f.palabrasPinyin || []).filter((w) => !isPunct(w)).length > 1);
+const isPunct = (w) => /^[，。？！、,.?!]+$/.test(w);
+
+// Una opción incorrecta no puede ser otra forma válida de la respuesta.
 function ambiguous(item, x) {
-  return x.hanzi === item.hanzi || x.es === item.es || (item.pinyin && normPy(x.pinyin) === normPy(item.pinyin));
+  return x.hanzi === item.hanzi || x.es === item.es || toneless(x.pinyin) === toneless(item.pinyin);
 }
 
 function distractors(item, pool, field, n = 3) {
@@ -66,74 +109,145 @@ function distractors(item, pool, field, n = 3) {
   return out;
 }
 
-function choice(item, pool, { prompt, field, hzOptions = false, audio = null }) {
+function choice(item, pool, { prompt, field, pyOptions = false, audio = null }) {
   const opts = shuffle([item, ...distractors(item, pool, field)]).map((x) => ({
-    html: esc(x[field]), correct: x[field] === item[field],
+    html: esc(x[field]) + (pyOptions ? hzLine(x.hanzi, 'hzopt') : ''), correct: x[field] === item[field],
   }));
-  return { kind: 'choice', prompt, options: opts, hzOptions, audio, item };
+  return { kind: 'choice', prompt, options: opts, pyOptions, audio, item };
 }
 
+const sayBtn = `<button class="speak big-speak" data-say aria-label="Escuchar">🔊</button>`;
+
 const gen = {
-  significado: (it, pool) => choice(it, pool, {
-    field: 'es',
-    prompt: `<div class="big">${esc(it.hanzi)}</div><div class="hint">¿Qué significa?</div>`,
-  }),
-  caracter: (it, pool) => choice(it, pool, {
-    field: 'hanzi', hzOptions: true,
-    prompt: `<div class="mid">${esc(it.es)}</div><div class="hint">Elige los caracteres</div>`,
-  }),
-  pinyin: (it, pool) => choice(it, pool, {
-    field: 'pinyin',
-    prompt: `<div class="big">${esc(it.hanzi)}</div><div class="hint">¿Cómo se lee?</div>`,
-  }),
   escuchar: (it, pool) => choice(it, pool, {
-    field: 'hanzi', hzOptions: true, audio: it.hanzi,
-    prompt: `<button class="speak" style="width:80px;height:80px;font-size:34px" data-say>🔊</button><div class="hint">Escucha y elige lo que oyes</div>`,
+    field: 'es', audio: it.hanzi,
+    prompt: `${sayBtn}<div class="hint">Escucha y elige qué significa</div>`,
   }),
-  ordenar: (fr) => ({ kind: 'order', item: fr, words: fr.palabras }),
+  tonos: (it) => {
+    const opts = shuffle([it.pinyin, ...toneVariants(it.pinyin)]).map((p) => ({ html: esc(p), correct: p === it.pinyin }));
+    return {
+      kind: 'choice', item: it, audio: it.hanzi, pyOptions: true, options: opts,
+      prompt: `${sayBtn}<div class="mid py">${esc(stripTones(it.pinyin))}</div><div class="hint">¿Con qué tonos se dice?</div>`,
+    };
+  },
+  significado: (it, pool) => choice(it, pool, {
+    field: 'es', audio: it.hanzi,
+    prompt: `<div class="big py">${esc(it.pinyin)}</div>${hzLine(it.hanzi)}<div class="hint">¿Qué significa?</div>`,
+  }),
+  decir: (it, pool) => choice(it, pool, {
+    field: 'pinyin', pyOptions: true,
+    prompt: `<div class="mid">${esc(it.es)}</div><div class="hint">¿Cómo se dice en chino?</div>`,
+  }),
+  ordenar: (fr) => ({ kind: 'order', item: fr, words: fr.palabrasPinyin.filter((w) => !isPunct(w)).map((w) => w.toLowerCase()) }),
+  hablar: (it) => ({ kind: 'speak', item: it }),
 };
 
 // Qué actividades tienen sentido con el contenido de la lección.
 export function availableActivities(lesson, poolSize) {
   const out = [];
   const n = items(lesson).length;
-  if (n >= 2 && poolSize >= 4) out.push('significado', 'caracter');
-  if (n >= 2 && poolSize >= 4 && items(lesson).some((x) => x.pinyin)) out.push('pinyin');
-  if (n >= 2 && poolSize >= 4 && canSpeak()) out.push('escuchar');
-  if ((lesson.frases || []).some((f) => f.palabras?.length > 1)) out.push('ordenar');
+  if (n >= 2 && poolSize >= 4) out.push('escuchar');
+  if (items(lesson).some((x) => toneVariants(x.pinyin).length >= 2)) out.push('tonos');
+  if (n >= 2 && poolSize >= 4) out.push('significado', 'decir');
+  if (orderable(lesson).length) out.push('ordenar');
+  if (n) out.push('hablar');
+  if (!canSpeak()) return out.filter((t) => t !== 'escuchar' && t !== 'tonos');
   return out;
 }
 
+const tonable = (x) => toneVariants(x.pinyin).length >= 2;
+
 // pool = elementos de esta lección y anteriores (para tener distractores suficientes).
 export function buildQuestions(tipo, lesson, pool, max = 10) {
-  if (tipo === 'ordenar') {
-    return shuffle((lesson.frases || []).filter((f) => f.palabras?.length > 1)).slice(0, max).map((f) => gen.ordenar(f));
-  }
+  if (tipo === 'ordenar') return shuffle(orderable(lesson)).slice(0, max).map((f) => gen.ordenar(f));
   let src = items(lesson);
-  if (tipo === 'pinyin') src = src.filter((x) => x.pinyin);
-  const poolF = tipo === 'pinyin' ? pool.filter((x) => x.pinyin) : pool;
-  return shuffle(src).slice(0, max).map((it) => gen[tipo](it, poolF));
+  if (tipo === 'tonos') src = src.filter(tonable);
+  if (tipo === 'hablar') {
+    // Mezcla palabras clave y frases cortas.
+    const core = src.filter((x) => !/práctica/.test(x.nota || ''));
+    return shuffle(core).slice(0, max).map((it) => gen.hablar(it));
+  }
+  return shuffle(src).slice(0, max).map((it) => gen[tipo](it, pool));
 }
 
 export function buildExam(lesson, pool, total = 15) {
-  const tipos = availableActivities(lesson, pool.length);
+  const tipos = availableActivities(lesson, pool.length).filter((t) => t !== 'hablar');
   const qs = [];
   // En el examen pesan más las palabras clave que las de práctica de pronunciación.
   const extra = (x) => /práctica/.test(x.nota || '');
   const src = [...shuffle(items(lesson).filter((x) => !extra(x))), ...shuffle(items(lesson).filter(extra))];
-  const frases = shuffle((lesson.frases || []).filter((f) => f.palabras?.length > 1));
+  const frases = shuffle(orderable(lesson));
   const choiceTipos = tipos.filter((t) => t !== 'ordenar');
-  // Hasta un tercio de preguntas de ordenar si hay frases.
-  const nOrder = tipos.includes('ordenar') ? Math.min(frases.length, Math.ceil(total / 4)) : 0;
+  const nOrder = tipos.includes('ordenar') ? Math.min(frases.length, Math.ceil(total / 5)) : 0;
   frases.slice(0, nOrder).forEach((f) => qs.push(gen.ordenar(f)));
   let i = 0;
-  while (qs.length < total && choiceTipos.length && i < total * 3) {
+  while (qs.length < total && choiceTipos.length && src.length && i < total * 4) {
     const it = src[i % src.length];
     const t = choiceTipos[i % choiceTipos.length];
-    if (t !== 'pinyin' || it.pinyin) qs.push(gen[t](it, t === 'pinyin' ? pool.filter((x) => x.pinyin) : pool));
+    if (t !== 'tonos' || tonable(it)) qs.push(gen[t](it, pool));
     i++;
   }
   return shuffle(qs);
+}
+
+// ---- Reconocimiento de voz ----
+const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+export const canListen = () => !!Recognition;
+
+let pinyinLib = null;
+const loadPinyin = () => (pinyinLib ??= import('./vendor/pinyin-pro.mjs').catch(() => null));
+
+const ZH_DIGITS = '零一二三四五六七八九';
+function numToZh(n) {
+  if (n < 10) return ZH_DIGITS[n];
+  if (n < 20) return '十' + (n % 10 ? ZH_DIGITS[n % 10] : '');
+  if (n < 100) return ZH_DIGITS[Math.floor(n / 10)] + '十' + (n % 10 ? ZH_DIGITS[n % 10] : '');
+  return String(n);
+}
+const cleanZh = (s) => String(s || '').replace(/\d+/g, (d) => numToZh(+d)).replace(/[^一-鿿]/g, '');
+
+async function sylls(hanzi) {
+  const lib = await loadPinyin();
+  const t = cleanZh(hanzi);
+  if (!lib) return [...t];
+  return lib.pinyin(t, { toneType: 'none', type: 'array' }).map((s) => s.replace('v', 'ü'));
+}
+
+function similarity(a, b) {
+  const m = a.length, n = b.length;
+  if (!m || !n) return 0;
+  const d = Array.from({ length: m + 1 }, (_, i) => [i, ...Array(n).fill(0)]);
+  for (let j = 1; j <= n; j++) d[0][j] = j;
+  for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) {
+    d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  }
+  return 1 - d[m][n] / Math.max(m, n);
+}
+
+// Escucha una vez y devuelve { ok, heard } comparando sílabas sin tono.
+function listenOnce(target) {
+  return new Promise((resolve) => {
+    const rec = new Recognition();
+    rec.lang = 'zh-CN';
+    rec.interimResults = false;
+    rec.maxAlternatives = 5;
+    let done = false;
+    const finish = (r) => { if (!done) { done = true; resolve(r); } };
+    rec.onresult = async (e) => {
+      const alts = [...e.results[0]].map((a) => a.transcript);
+      const want = await sylls(target);
+      let best = { score: 0, heard: alts[0] || '' };
+      for (const a of alts) {
+        const got = await sylls(a);
+        const s = cleanZh(a) === cleanZh(target) ? 1 : similarity(got, want);
+        if (s > best.score) best = { score: s, heard: a, py: got.join(' ') };
+      }
+      finish({ ok: best.score >= 0.75, heard: best.heard, py: best.py });
+    };
+    rec.onerror = (e) => finish({ ok: false, error: e.error });
+    rec.onend = () => finish({ ok: false, heard: '' });
+    try { rec.start(); } catch { finish({ ok: false, error: 'start' }); }
+  });
 }
 
 // ---- Motor ----
@@ -165,12 +279,12 @@ export function runQuiz(root, questions, onFinish, { title = '' } = {}) {
     const nextBtn = root.querySelector('#next');
     nextBtn.onclick = () => { idx++; next(); };
 
-    const answered = (ok) => {
+    const answered = (ok, extra = '') => {
       if (ok) correct++; else mistakes.push(q.item);
       const it = q.item;
       fb.className = `feedback show ${ok ? 'ok' : 'ko'}`;
-      fb.innerHTML = `${ok ? '✔ ¡Correcto!' : '✘ No es correcto.'}<br>
-        <span class="hz" style="font-size:20px">${esc(it.hanzi)}</span> · <b>${esc(it.pinyin || '')}</b> · ${esc(it.es)}`;
+      fb.innerHTML = `${ok ? '✔ ¡Correcto!' : '✘ No es correcto.'}${extra}<br>
+        <b class="py" style="font-size:20px">${esc(it.pinyin)}</b> · ${esc(it.es)}${hzLine(it.hanzi)}`;
       nextBtn.style.display = '';
       speak(it.hanzi);
     };
@@ -178,7 +292,7 @@ export function runQuiz(root, questions, onFinish, { title = '' } = {}) {
     if (q.kind === 'choice') {
       qEl.innerHTML = `<div class="prompt">${q.prompt}</div>
         <div class="options">${q.options.map((o, i) =>
-          `<button class="opt ${q.hzOptions ? 'hzopt' : ''}" data-i="${i}">${o.html}</button>`).join('')}</div>`;
+          `<button class="opt ${q.pyOptions ? 'pyopt' : ''}" data-i="${i}">${o.html}</button>`).join('')}</div>`;
       const say = qEl.querySelector('[data-say]');
       if (say) { say.onclick = () => speak(q.audio); setTimeout(() => speak(q.audio), 250); }
       qEl.querySelectorAll('.opt').forEach((b) => {
@@ -190,7 +304,7 @@ export function runQuiz(root, questions, onFinish, { title = '' } = {}) {
           answered(o.correct);
         };
       });
-    } else {
+    } else if (q.kind === 'order') {
       const bank = shuffle(q.words.map((w, i) => ({ w, i })));
       const chosen = [];
       qEl.innerHTML = `<div class="prompt"><div class="mid">${esc(q.item.es)}</div><div class="hint">Ordena las palabras</div></div>
@@ -204,13 +318,57 @@ export function runQuiz(root, questions, onFinish, { title = '' } = {}) {
         bankEl.innerHTML = bank.map((c, k) => `<button class="tile ${chosen.includes(c) ? 'used' : ''}" data-b="${k}">${esc(c.w)}</button>`).join('');
         check.disabled = chosen.length !== q.words.length;
         slots.querySelectorAll('.tile').forEach((t) => { t.onclick = () => { if (!check.hidden) { chosen.splice(+t.dataset.k, 1); draw(); } }; });
-        bankEl.querySelectorAll('.tile').forEach((t) => { t.onclick = () => { if (!check.hidden) { chosen.push(bank[+t.dataset.b]); speak(bank[+t.dataset.b].w); draw(); } }; });
+        bankEl.querySelectorAll('.tile').forEach((t) => { t.onclick = () => { if (!check.hidden) { chosen.push(bank[+t.dataset.b]); draw(); } }; });
       };
       draw();
       check.onclick = () => {
         check.hidden = true;
-        answered(chosen.map((c) => c.w).join('') === q.words.join(''));
+        answered(chosen.map((c) => c.w).join(' ') === q.words.join(' '));
       };
+    } else {
+      // Hablar: se muestra el español (y el pinyin como ayuda), se escucha el modelo y se dice en voz alta.
+      const it = q.item;
+      qEl.innerHTML = `<div class="prompt">
+          <div class="mid">${esc(it.es)}</div>
+          <div class="py big-py" id="pyhint">${esc(it.pinyin)}</div>${hzLine(it.hanzi)}
+          <div class="row" style="justify-content:center;margin-top:12px">
+            <button class="btn secondary" id="model">🔊 Escuchar</button>
+          </div>
+        </div>
+        ${canListen()
+          ? `<button class="btn block mic" id="mic">🎤 Pulsa y habla</button><p class="note" id="heard" style="text-align:center"></p>
+             <button class="btn secondary block" id="skip" style="margin-top:8px">No puedo hablar ahora</button>`
+          : `<p class="note" style="text-align:center">Tu navegador no puede escucharte. Repite en voz alta y valora tú mismo:</p>
+             <div class="row"><button class="btn secondary" id="selfno">Me ha costado</button><button class="btn" id="selfok">Lo he dicho bien</button></div>`}`;
+      qEl.querySelector('#model').onclick = () => speak(it.hanzi);
+      setTimeout(() => speak(it.hanzi), 250);
+      if (canListen()) {
+        const mic = qEl.querySelector('#mic');
+        const heard = qEl.querySelector('#heard');
+        let tries = 0;
+        mic.onclick = async () => {
+          if (nextBtn.style.display === '') return;
+          window.speechSynthesis?.cancel();
+          mic.disabled = true;
+          mic.textContent = '👂 Escuchando…';
+          const r = await listenOnce(it.hanzi);
+          mic.disabled = false;
+          mic.textContent = '🎤 Pulsa y habla';
+          tries++;
+          if (r.error === 'not-allowed' || r.error === 'service-not-allowed') {
+            heard.textContent = 'Necesito permiso para usar el micrófono. Actívalo en el navegador y vuelve a intentarlo.';
+            return;
+          }
+          if (r.ok) { mic.hidden = true; qEl.querySelector('#skip').hidden = true; answered(true, ' Te he entendido bien.'); return; }
+          heard.textContent = r.heard ? `He entendido: ${r.py || r.heard}. Prueba otra vez.` : 'No te he oído bien. Prueba otra vez.';
+          if (tries >= 3) { mic.hidden = true; qEl.querySelector('#skip').hidden = true; answered(false); }
+        };
+        qEl.querySelector('#skip').onclick = () => { mic.hidden = true; qEl.querySelector('#skip').hidden = true; answered(false); };
+      } else {
+        const hide = () => qEl.querySelectorAll('#selfno,#selfok').forEach((b) => { b.hidden = true; });
+        qEl.querySelector('#selfok').onclick = () => { hide(); answered(true); };
+        qEl.querySelector('#selfno').onclick = () => { hide(); answered(false); };
+      }
     }
   };
   next();

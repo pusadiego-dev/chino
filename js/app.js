@@ -1,6 +1,6 @@
 import * as store from './store.js';
 import { NOTA_APROBADO } from '../firebase-config.js';
-import { ACTIVIDADES, availableActivities, buildQuestions, buildExam, runQuiz, speak, canSpeak, esc, shuffle } from './activities.js';
+import { ACTIVIDADES, availableActivities, buildQuestions, buildExam, runQuiz, speak, canSpeak, esc, shuffle, showHanzi, setShowHanzi, hzLine } from './activities.js';
 
 const app = document.getElementById('app');
 const userBox = document.getElementById('user-box');
@@ -23,14 +23,20 @@ const poolUpTo = (i) => lessons.slice(0, i + 1).flatMap((l) => [...(l.vocabulari
 // ---------- Vistas ----------
 function renderUserBox() {
   const u = store.getUser();
-  userBox.innerHTML = u ? `<span>${esc(u.name)}</span><button id="logout">Salir</button>` : '';
-  if (u) userBox.querySelector('#logout').onclick = () => store.logout();
+  const hz = showHanzi();
+  userBox.innerHTML = u ? `<button id="hz-toggle" title="Mostrar u ocultar los caracteres chinos">${hz ? '汉字 sí' : '汉字 no'}</button>
+    <span>${esc(u.name)}</span><button id="logout">Salir</button>` : '';
+  if (u) {
+    userBox.querySelector('#logout').onclick = () => store.logout();
+    // Cambiar la preferencia vuelve a pintar la vista actual (no reinicia un ejercicio a medias si no hace falta).
+    userBox.querySelector('#hz-toggle').onclick = () => { setShowHanzi(!hz); route(); };
+  }
 }
 
 function viewLogin() {
   if (store.isCloud()) {
     app.innerHTML = `
-      <h1>¡Hola! 你好</h1>
+      <h1>¡Hola! Nǐ hǎo</h1>
       <p class="sub">Entra con tu cuenta para guardar tu progreso.</p>
       <div class="card">
         <div class="row" style="margin-bottom:12px">
@@ -87,7 +93,7 @@ function viewLogin() {
   } else {
     const perfiles = store.localProfiles();
     app.innerHTML = `
-      <h1>¡Hola! 你好</h1>
+      <h1>¡Hola! Nǐ hǎo</h1>
       <p class="sub">¿Quién va a estudiar?</p>
       ${perfiles.map((p) => `<button class="btn secondary block" style="margin-bottom:8px" data-p="${esc(p)}">${esc(p)}</button>`).join('')}
       <div class="card">
@@ -128,7 +134,7 @@ function viewHome() {
       return `<a class="card lesson ${p.aprobado ? 'done' : ''} ${open ? '' : 'locked'}" href="#/l/${l.id}">
         <div class="num">${p.aprobado ? '✓' : open ? l.numero : '🔒'}</div>
         <div class="info">
-          <div class="title">${esc(l.titulo)} ${l.tituloChino ? `<span class="hz">${esc(l.tituloChino)}</span>` : ''}</div>
+          <div class="title">${esc(l.titulo)} ${l.tituloChino && showHanzi() ? `<span class="hz">${esc(l.tituloChino)}</span>` : ''}</div>
           <div class="meta">Lección ${l.numero} · ${(l.vocabulario || []).length} palabras${p.mejorExamen ? ` · examen ${p.mejorExamen}%` : ''}</div>
           ${open ? `<div class="bar"><span style="width:${pct}%"></span></div>` : ''}
         </div></a>`;
@@ -153,9 +159,10 @@ function viewLesson(id) {
   app.innerHTML = `
     <p><a href="#/">← Lecciones</a></p>
     <span class="tag">Lección ${l.numero}</span>
-    <h1>${esc(l.titulo)} ${l.tituloChino ? `<span class="hz">${esc(l.tituloChino)}</span>` : ''}</h1>
+    <h1>${esc(l.titulo)} ${l.tituloChino && showHanzi() ? `<span class="hz">${esc(l.tituloChino)}</span>` : ''}</h1>
     ${l.resumen ? `<p class="sub">${esc(l.resumen)}</p>` : ''}
     <h2>Actividades</h2>
+    <p class="note">Escucha, lee el pinyin y habla. Los caracteres chinos se pueden mostrar con el botón 汉字 de arriba.</p>
     <div class="acts">
       ${(l.vocabulario || []).length ? `<a class="act" href="#/l/${id}/flash"><div class="ico">🃏</div><div class="name">Flashcards</div><div class="score">${sc('flash')}</div></a>` : ''}
       ${tipos.map((t) => `<a class="act" href="#/l/${id}/a/${t}"><div class="ico">${ACTIVIDADES[t].ico}</div>
@@ -169,8 +176,7 @@ function viewLesson(id) {
 
 function vocabRow(v, frase = false) {
   return `<div class="vocab${frase ? ' frase' : ''}">
-    <span class="hz">${esc(v.hanzi)}</span>
-    <div class="grow"><div class="py">${esc(v.pinyin || '')}</div><div class="es">${esc(v.es)}${v.nota ? ` · <i>${esc(v.nota)}</i>` : ''}</div></div>
+    <div class="grow"><div class="py">${esc(v.pinyin || '')}</div><div class="es">${esc(v.es)}${v.nota ? ` · <i>${esc(v.nota)}</i>` : ''}</div>${hzLine(v.hanzi)}</div>
     ${canSpeak() ? `<button class="speak" data-say="${esc(v.hanzi)}" aria-label="Escuchar">🔊</button>` : ''}
   </div>`;
 }
@@ -182,8 +188,8 @@ function material(l) {
   if ((l.gramatica || []).length) {
     h += `<h2>Gramática</h2>${l.gramatica.map((g) => `<div class="card grammar"><h3>${esc(g.titulo)}</h3>
       ${g.explicacion ? `<p>${esc(g.explicacion)}</p>` : ''}
-      ${(g.ejemplos || []).map((e) => `<div class="ex"><span class="hz">${esc(e.hanzi)}</span> ${canSpeak() ? `<button class="speak" style="width:30px;height:30px;font-size:14px" data-say="${esc(e.hanzi)}">🔊</button>` : ''}<br>
-        <b>${esc(e.pinyin || '')}</b> · ${esc(e.es || '')}</div>`).join('')}</div>`).join('')}`;
+      ${(g.ejemplos || []).map((e) => `<div class="ex"><b class="py">${esc(e.pinyin || '')}</b> ${canSpeak() ? `<button class="speak" style="width:30px;height:30px;font-size:14px" data-say="${esc(e.hanzi)}">🔊</button>` : ''}<br>
+        ${esc(e.es || '')}${hzLine(e.hanzi)}</div>`).join('')}</div>`).join('')}`;
   }
   if (l.notas) h += `<h2>Notas</h2><div class="card"><p style="margin:0;white-space:pre-line">${esc(l.notas)}</p></div>`;
   return h;
@@ -218,14 +224,18 @@ function viewFlash(id) {
       <div class="progress-top"><a href="#/l/${id}" class="note" style="text-decoration:none;font-size:20px">✕</a>
         <div class="bar"><span style="width:${(k / cards.length) * 100}%"></span></div><span class="note">${k + 1}/${cards.length}</span></div>
       <div class="flash" id="card"><div class="flash-inner">
-        <div class="face"><div class="big">${esc(c.hanzi)}</div><div class="note">Toca para girar</div></div>
-        <div class="face back"><div class="hz" style="font-size:36px">${esc(c.hanzi)}</div>
-          <div class="py" style="color:var(--red);font-weight:700;font-size:20px">${esc(c.pinyin || '')}</div>
-          <div style="font-size:20px">${esc(c.es)}</div></div>
+        <div class="face"><div class="bigpy">${esc(c.pinyin || '')}</div>${hzLine(c.hanzi)}
+          ${canSpeak() ? '<button class="speak big-speak" id="say" aria-label="Escuchar">🔊</button>' : ''}
+          <div class="note">¿Qué significa? Toca la tarjeta para girarla</div></div>
+        <div class="face back"><div style="font-size:26px;font-weight:600">${esc(c.es)}</div>
+          <div class="py" style="color:var(--red);font-weight:700;font-size:20px;margin-top:8px">${esc(c.pinyin || '')}</div>${hzLine(c.hanzi)}</div>
       </div></div>
       <div class="row"><button class="btn secondary" id="no">No lo sé</button><button class="btn" id="yes">Lo sé</button></div>`;
     const card = app.querySelector('#card');
     card.onclick = () => { card.classList.toggle('flipped'); if (card.classList.contains('flipped')) speak(c.hanzi); };
+    const say = app.querySelector('#say');
+    if (say) say.onclick = (e) => { e.stopPropagation(); speak(c.hanzi); };
+    setTimeout(() => speak(c.hanzi), 250);
     app.querySelector('#yes').onclick = () => { if (!c._fallo) known++; k++; draw(); };
     app.querySelector('#no').onclick = () => { c._fallo = true; repeat.push(c); k++; draw(); };
   };
@@ -269,7 +279,7 @@ function showResult(id, r, { exam = false, pass = r.pct >= NOTA_APROBADO, again,
     <div class="result ${pass ? 'pass' : 'fail'}">
       <div class="pct">${r.pct}%</div>
       <p>${r.correct} de ${r.total} correctas</p>
-      ${exam ? (pass ? '<h2>¡Examen aprobado! 太棒了!</h2>' : `<h2>Casi… necesitas ${NOTA_APROBADO}%</h2><p class="sub">Repasa los fallos y vuelve a intentarlo.</p>`) : ''}
+      ${exam ? (pass ? '<h2>¡Examen aprobado! Tài bàng le!</h2>' : `<h2>Casi… necesitas ${NOTA_APROBADO}%</h2><p class="sub">Repasa los fallos y vuelve a intentarlo.</p>`) : ''}
       ${extra}
     </div>
     ${uniq.length ? `<h2>Para repasar</h2><div class="card mistakes">${uniq.map(vocabRow).join('')}</div>` : ''}

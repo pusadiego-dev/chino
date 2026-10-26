@@ -5,44 +5,283 @@
   "tituloChino": "你好",
   "resumen": "Saludar, pedir perdón y responder. Pinyin: iniciales, finales, los cuatro tonos y el cambio de tono 3 + 3.",
   "vocabulario": [
-    { "hanzi": "你", "pinyin": "nǐ", "es": "tú" },
-    { "hanzi": "好", "pinyin": "hǎo", "es": "bueno, bien" },
-    { "hanzi": "您", "pinyin": "nín", "es": "usted (tú de cortesía)" },
-    { "hanzi": "你们", "pinyin": "nǐmen", "es": "vosotros" },
-    { "hanzi": "对不起", "pinyin": "duìbuqǐ", "es": "lo siento, perdón" },
-    { "hanzi": "没关系", "pinyin": "méi guānxi", "es": "no pasa nada, no importa" },
-    { "hanzi": "我", "pinyin": "wǒ", "es": "yo", "nota": "apuntes de clase" },
-    { "hanzi": "他", "pinyin": "tā", "es": "él", "nota": "apuntes de clase" },
-    { "hanzi": "她", "pinyin": "tā", "es": "ella", "nota": "apuntes de clase" },
-    { "hanzi": "们", "pinyin": "men", "es": "sufijo de plural para personas", "nota": "apuntes de clase" },
-    { "hanzi": "很", "pinyin": "hěn", "es": "muy", "nota": "apuntes de clase" },
-    { "hanzi": "不", "pinyin": "bù", "es": "no", "nota": "apuntes de clase" },
-    { "hanzi": "一般", "pinyin": "yìbān", "es": "normal, regular", "nota": "apuntes de clase" },
-    { "hanzi": "猫", "pinyin": "māo", "es": "gato" },
-    { "hanzi": "鱼", "pinyin": "yú", "es": "pez" },
-    { "hanzi": "姐", "pinyin": "jiě", "es": "hermana mayor" },
-    { "hanzi": "二", "pinyin": "èr", "es": "dos" },
-    { "hanzi": "妈", "pinyin": "mā", "es": "madre", "nota": "ejemplo de 1.er tono" },
-    { "hanzi": "麻", "pinyin": "má", "es": "cáñamo", "nota": "ejemplo de 2.º tono" },
-    { "hanzi": "马", "pinyin": "mǎ", "es": "caballo", "nota": "ejemplo de 3.er tono" },
-    { "hanzi": "骂", "pinyin": "mà", "es": "regañar", "nota": "ejemplo de 4.º tono" },
-    { "hanzi": "咖啡", "pinyin": "kāfēi", "es": "café", "nota": "práctica de pronunciación" },
-    { "hanzi": "可乐", "pinyin": "kělè", "es": "cola (refresco)", "nota": "práctica de pronunciación" },
-    { "hanzi": "烤鸭", "pinyin": "kǎoyā", "es": "pato laqueado", "nota": "práctica de pronunciación" },
-    { "hanzi": "火锅", "pinyin": "huǒguō", "es": "olla caliente (hot pot)", "nota": "práctica de pronunciación" },
-    { "hanzi": "地图", "pinyin": "dìtú", "es": "mapa", "nota": "práctica de pronunciación" },
-    { "hanzi": "飞机", "pinyin": "fēijī", "es": "avión", "nota": "práctica de pronunciación" },
-    { "hanzi": "毛笔", "pinyin": "máobǐ", "es": "pincel de caligrafía", "nota": "práctica de pronunciación" },
-    { "hanzi": "耳机", "pinyin": "ěrjī", "es": "auriculares", "nota": "práctica de pronunciación" }
+    {
+      "hanzi": "你",
+      "pinyin": "nǐ",
+      "es": "tú"
+    },
+    {
+      "hanzi": "好",
+      "pinyin": "hǎo",
+      "es": "bueno, bien"
+    },
+    {
+      "hanzi": "您",
+      "pinyin": "nín",
+      "es": "usted (tú de cortesía)"
+    },
+    {
+      "hanzi": "你们",
+      "pinyin": "nǐmen",
+      "es": "vosotros"
+    },
+    {
+      "hanzi": "对不起",
+      "pinyin": "duìbuqǐ",
+      "es": "lo siento, perdón"
+    },
+    {
+      "hanzi": "没关系",
+      "pinyin": "méi guānxi",
+      "es": "no pasa nada, no importa"
+    },
+    {
+      "hanzi": "我",
+      "pinyin": "wǒ",
+      "es": "yo",
+      "nota": "apuntes de clase"
+    },
+    {
+      "hanzi": "他",
+      "pinyin": "tā",
+      "es": "él",
+      "nota": "apuntes de clase"
+    },
+    {
+      "hanzi": "她",
+      "pinyin": "tā",
+      "es": "ella",
+      "nota": "apuntes de clase"
+    },
+    {
+      "hanzi": "们",
+      "pinyin": "men",
+      "es": "sufijo de plural para personas",
+      "nota": "apuntes de clase"
+    },
+    {
+      "hanzi": "很",
+      "pinyin": "hěn",
+      "es": "muy",
+      "nota": "apuntes de clase"
+    },
+    {
+      "hanzi": "不",
+      "pinyin": "bù",
+      "es": "no",
+      "nota": "apuntes de clase"
+    },
+    {
+      "hanzi": "一般",
+      "pinyin": "yìbān",
+      "es": "normal, regular",
+      "nota": "apuntes de clase"
+    },
+    {
+      "hanzi": "猫",
+      "pinyin": "māo",
+      "es": "gato"
+    },
+    {
+      "hanzi": "鱼",
+      "pinyin": "yú",
+      "es": "pez"
+    },
+    {
+      "hanzi": "姐",
+      "pinyin": "jiě",
+      "es": "hermana mayor"
+    },
+    {
+      "hanzi": "二",
+      "pinyin": "èr",
+      "es": "dos"
+    },
+    {
+      "hanzi": "妈",
+      "pinyin": "mā",
+      "es": "madre",
+      "nota": "ejemplo de 1.er tono"
+    },
+    {
+      "hanzi": "麻",
+      "pinyin": "má",
+      "es": "cáñamo",
+      "nota": "ejemplo de 2.º tono"
+    },
+    {
+      "hanzi": "马",
+      "pinyin": "mǎ",
+      "es": "caballo",
+      "nota": "ejemplo de 3.er tono"
+    },
+    {
+      "hanzi": "骂",
+      "pinyin": "mà",
+      "es": "regañar",
+      "nota": "ejemplo de 4.º tono"
+    },
+    {
+      "hanzi": "咖啡",
+      "pinyin": "kāfēi",
+      "es": "café",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "可乐",
+      "pinyin": "kělè",
+      "es": "cola (refresco)",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "烤鸭",
+      "pinyin": "kǎoyā",
+      "es": "pato laqueado",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "火锅",
+      "pinyin": "huǒguō",
+      "es": "olla caliente (hot pot)",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "地图",
+      "pinyin": "dìtú",
+      "es": "mapa",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "飞机",
+      "pinyin": "fēijī",
+      "es": "avión",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "毛笔",
+      "pinyin": "máobǐ",
+      "es": "pincel de caligrafía",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "耳机",
+      "pinyin": "ěrjī",
+      "es": "auriculares",
+      "nota": "práctica de pronunciación"
+    }
   ],
   "frases": [
-    { "hanzi": "你好！", "pinyin": "Nǐ hǎo!", "es": "¡Hola!", "palabras": ["你", "好", "！"] },
-    { "hanzi": "您好！", "pinyin": "Nín hǎo!", "es": "¡Hola! (con cortesía)", "palabras": ["您", "好", "！"] },
-    { "hanzi": "你们好！", "pinyin": "Nǐmen hǎo!", "es": "¡Hola a todos!", "palabras": ["你们", "好", "！"] },
-    { "hanzi": "对不起！", "pinyin": "Duìbuqǐ!", "es": "¡Lo siento!", "palabras": ["对", "不", "起", "！"] },
-    { "hanzi": "没关系！", "pinyin": "Méi guānxi!", "es": "¡No pasa nada!", "palabras": ["没", "关系", "！"] },
-    { "hanzi": "我很好。", "pinyin": "Wǒ hěn hǎo.", "es": "Estoy muy bien.", "palabras": ["我", "很", "好", "。"] },
-    { "hanzi": "我不好。", "pinyin": "Wǒ bù hǎo.", "es": "No estoy bien.", "palabras": ["我", "不", "好", "。"] }
+    {
+      "hanzi": "你好！",
+      "pinyin": "Nǐ hǎo!",
+      "es": "¡Hola!",
+      "palabras": [
+        "你",
+        "好",
+        "！"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "hǎo",
+        "！"
+      ]
+    },
+    {
+      "hanzi": "您好！",
+      "pinyin": "Nín hǎo!",
+      "es": "¡Hola! (con cortesía)",
+      "palabras": [
+        "您",
+        "好",
+        "！"
+      ],
+      "palabrasPinyin": [
+        "Nín",
+        "hǎo",
+        "！"
+      ]
+    },
+    {
+      "hanzi": "你们好！",
+      "pinyin": "Nǐmen hǎo!",
+      "es": "¡Hola a todos!",
+      "palabras": [
+        "你们",
+        "好",
+        "！"
+      ],
+      "palabrasPinyin": [
+        "Nǐmen",
+        "hǎo",
+        "！"
+      ]
+    },
+    {
+      "hanzi": "对不起！",
+      "pinyin": "Duìbuqǐ!",
+      "es": "¡Lo siento!",
+      "palabras": [
+        "对",
+        "不",
+        "起",
+        "！"
+      ],
+      "palabrasPinyin": [
+        "Duì",
+        "bu",
+        "qǐ",
+        "！"
+      ]
+    },
+    {
+      "hanzi": "没关系！",
+      "pinyin": "Méi guānxi!",
+      "es": "¡No pasa nada!",
+      "palabras": [
+        "没",
+        "关系",
+        "！"
+      ],
+      "palabrasPinyin": [
+        "Méi",
+        "guānxi",
+        "！"
+      ]
+    },
+    {
+      "hanzi": "我很好。",
+      "pinyin": "Wǒ hěn hǎo.",
+      "es": "Estoy muy bien.",
+      "palabras": [
+        "我",
+        "很",
+        "好",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "hěn",
+        "hǎo",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "我不好。",
+      "pinyin": "Wǒ bù hǎo.",
+      "es": "No estoy bien.",
+      "palabras": [
+        "我",
+        "不",
+        "好",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "bù",
+        "hǎo",
+        "。"
+      ]
+    }
   ],
   "gramatica": [
     {
@@ -53,28 +292,68 @@
       "titulo": "Los cuatro tonos",
       "explicacion": "1.º alto y plano (55), 2.º ascendente (35), 3.º baja y sube (214), 4.º descendente (51). El tono cambia el significado.",
       "ejemplos": [
-        { "hanzi": "妈", "pinyin": "mā", "es": "madre" },
-        { "hanzi": "麻", "pinyin": "má", "es": "cáñamo" },
-        { "hanzi": "马", "pinyin": "mǎ", "es": "caballo" },
-        { "hanzi": "骂", "pinyin": "mà", "es": "regañar" }
+        {
+          "hanzi": "妈",
+          "pinyin": "mā",
+          "es": "madre"
+        },
+        {
+          "hanzi": "麻",
+          "pinyin": "má",
+          "es": "cáñamo"
+        },
+        {
+          "hanzi": "马",
+          "pinyin": "mǎ",
+          "es": "caballo"
+        },
+        {
+          "hanzi": "骂",
+          "pinyin": "mà",
+          "es": "regañar"
+        }
       ]
     },
     {
       "titulo": "La sílaba china",
       "explicacion": "Una sílaba tiene inicial, final y tono; normalmente un carácter es una sílaba. Puede no tener inicial, pero siempre tiene final y tono. Si i o ü van solas se escribe y delante (y ü pierde los puntos: yu); si u va sola se escribe w delante (wu).",
       "ejemplos": [
-        { "hanzi": "猫", "pinyin": "māo", "es": "gato (m + ao, 1.er tono)" },
-        { "hanzi": "鱼", "pinyin": "yú", "es": "pez (ü, 2.º tono)" },
-        { "hanzi": "姐", "pinyin": "jiě", "es": "hermana mayor (j + ie, 3.er tono)" },
-        { "hanzi": "二", "pinyin": "èr", "es": "dos (er, 4.º tono)" }
+        {
+          "hanzi": "猫",
+          "pinyin": "māo",
+          "es": "gato (m + ao, 1.er tono)"
+        },
+        {
+          "hanzi": "鱼",
+          "pinyin": "yú",
+          "es": "pez (ü, 2.º tono)"
+        },
+        {
+          "hanzi": "姐",
+          "pinyin": "jiě",
+          "es": "hermana mayor (j + ie, 3.er tono)"
+        },
+        {
+          "hanzi": "二",
+          "pinyin": "èr",
+          "es": "dos (er, 4.º tono)"
+        }
       ]
     },
     {
       "titulo": "Cambio de tono: 3.º + 3.º",
       "explicacion": "Cuando van dos sílabas de 3.er tono seguidas, la primera se pronuncia en 2.º tono (3+3 → 2+3). Al escribir se mantiene el tono original.",
       "ejemplos": [
-        { "hanzi": "你好", "pinyin": "nǐ hǎo (se dice ní hǎo)", "es": "hola" },
-        { "hanzi": "可以", "pinyin": "kěyǐ (se dice kéyǐ)", "es": "poder, estar permitido" }
+        {
+          "hanzi": "你好",
+          "pinyin": "nǐ hǎo (se dice ní hǎo)",
+          "es": "hola"
+        },
+        {
+          "hanzi": "可以",
+          "pinyin": "kěyǐ (se dice kéyǐ)",
+          "es": "poder, estar permitido"
+        }
       ]
     }
   ]

@@ -5,87 +5,471 @@
   "tituloChino": "她女儿今年二十岁",
   "resumen": "Hablar de la familia y de la edad. Los números hasta 99, preguntas con 几 y 多大, y 了 para indicar un cambio.",
   "vocabulario": [
-    { "hanzi": "家", "pinyin": "jiā", "es": "familia, casa" },
-    { "hanzi": "有", "pinyin": "yǒu", "es": "tener, haber" },
-    { "hanzi": "口", "pinyin": "kǒu", "es": "clasificador para miembros de la familia" },
-    { "hanzi": "女儿", "pinyin": "nǚ'ér", "es": "hija" },
-    { "hanzi": "几", "pinyin": "jǐ", "es": "cuántos (normalmente menos de 10)" },
-    { "hanzi": "岁", "pinyin": "suì", "es": "años (de edad)" },
-    { "hanzi": "了", "pinyin": "le", "es": "partícula de cambio o situación nueva" },
-    { "hanzi": "今年", "pinyin": "jīnnián", "es": "este año" },
-    { "hanzi": "多", "pinyin": "duō", "es": "cuán, qué tan (en preguntas)" },
-    { "hanzi": "大", "pinyin": "dà", "es": "grande; mayor (de edad)" },
-    { "hanzi": "多大", "pinyin": "duō dà", "es": "qué edad" },
-    { "hanzi": "女", "pinyin": "nǚ", "es": "mujer", "nota": "carácter pictográfico" },
-    { "hanzi": "零", "pinyin": "líng", "es": "cero" },
-    { "hanzi": "一", "pinyin": "yī", "es": "uno" },
-    { "hanzi": "二", "pinyin": "èr", "es": "dos" },
-    { "hanzi": "三", "pinyin": "sān", "es": "tres" },
-    { "hanzi": "四", "pinyin": "sì", "es": "cuatro" },
-    { "hanzi": "五", "pinyin": "wǔ", "es": "cinco" },
-    { "hanzi": "六", "pinyin": "liù", "es": "seis" },
-    { "hanzi": "七", "pinyin": "qī", "es": "siete" },
-    { "hanzi": "八", "pinyin": "bā", "es": "ocho" },
-    { "hanzi": "九", "pinyin": "jiǔ", "es": "nueve" },
-    { "hanzi": "十", "pinyin": "shí", "es": "diez" },
-    { "hanzi": "十九", "pinyin": "shíjiǔ", "es": "diecinueve" },
-    { "hanzi": "二十", "pinyin": "èrshí", "es": "veinte" },
-    { "hanzi": "二十三", "pinyin": "èrshísān", "es": "veintitrés" },
-    { "hanzi": "三十", "pinyin": "sānshí", "es": "treinta" },
-    { "hanzi": "四十", "pinyin": "sìshí", "es": "cuarenta" },
-    { "hanzi": "五十", "pinyin": "wǔshí", "es": "cincuenta" },
-    { "hanzi": "五十六", "pinyin": "wǔshíliù", "es": "cincuenta y seis" },
-    { "hanzi": "六十", "pinyin": "liùshí", "es": "sesenta" },
-    { "hanzi": "七十", "pinyin": "qīshí", "es": "setenta" },
-    { "hanzi": "八十八", "pinyin": "bāshíbā", "es": "ochenta y ocho" },
-    { "hanzi": "九十九", "pinyin": "jiǔshíjiǔ", "es": "noventa y nueve" },
-    { "hanzi": "第一", "pinyin": "dì yī", "es": "primero (第 + número = ordinal)", "nota": "apuntes de clase" },
-    { "hanzi": "水", "pinyin": "shuǐ", "es": "agua" }
+    {
+      "hanzi": "家",
+      "pinyin": "jiā",
+      "es": "familia, casa"
+    },
+    {
+      "hanzi": "有",
+      "pinyin": "yǒu",
+      "es": "tener, haber"
+    },
+    {
+      "hanzi": "口",
+      "pinyin": "kǒu",
+      "es": "clasificador para miembros de la familia"
+    },
+    {
+      "hanzi": "女儿",
+      "pinyin": "nǚ'ér",
+      "es": "hija"
+    },
+    {
+      "hanzi": "几",
+      "pinyin": "jǐ",
+      "es": "cuántos (normalmente menos de 10)"
+    },
+    {
+      "hanzi": "岁",
+      "pinyin": "suì",
+      "es": "años (de edad)"
+    },
+    {
+      "hanzi": "了",
+      "pinyin": "le",
+      "es": "partícula de cambio o situación nueva"
+    },
+    {
+      "hanzi": "今年",
+      "pinyin": "jīnnián",
+      "es": "este año"
+    },
+    {
+      "hanzi": "多",
+      "pinyin": "duō",
+      "es": "cuán, qué tan (en preguntas)"
+    },
+    {
+      "hanzi": "大",
+      "pinyin": "dà",
+      "es": "grande; mayor (de edad)"
+    },
+    {
+      "hanzi": "多大",
+      "pinyin": "duō dà",
+      "es": "qué edad"
+    },
+    {
+      "hanzi": "女",
+      "pinyin": "nǚ",
+      "es": "mujer",
+      "nota": "carácter pictográfico"
+    },
+    {
+      "hanzi": "零",
+      "pinyin": "líng",
+      "es": "cero"
+    },
+    {
+      "hanzi": "一",
+      "pinyin": "yī",
+      "es": "uno"
+    },
+    {
+      "hanzi": "二",
+      "pinyin": "èr",
+      "es": "dos"
+    },
+    {
+      "hanzi": "三",
+      "pinyin": "sān",
+      "es": "tres"
+    },
+    {
+      "hanzi": "四",
+      "pinyin": "sì",
+      "es": "cuatro"
+    },
+    {
+      "hanzi": "五",
+      "pinyin": "wǔ",
+      "es": "cinco"
+    },
+    {
+      "hanzi": "六",
+      "pinyin": "liù",
+      "es": "seis"
+    },
+    {
+      "hanzi": "七",
+      "pinyin": "qī",
+      "es": "siete"
+    },
+    {
+      "hanzi": "八",
+      "pinyin": "bā",
+      "es": "ocho"
+    },
+    {
+      "hanzi": "九",
+      "pinyin": "jiǔ",
+      "es": "nueve"
+    },
+    {
+      "hanzi": "十",
+      "pinyin": "shí",
+      "es": "diez"
+    },
+    {
+      "hanzi": "十九",
+      "pinyin": "shíjiǔ",
+      "es": "diecinueve"
+    },
+    {
+      "hanzi": "二十",
+      "pinyin": "èrshí",
+      "es": "veinte"
+    },
+    {
+      "hanzi": "二十三",
+      "pinyin": "èrshísān",
+      "es": "veintitrés"
+    },
+    {
+      "hanzi": "三十",
+      "pinyin": "sānshí",
+      "es": "treinta"
+    },
+    {
+      "hanzi": "四十",
+      "pinyin": "sìshí",
+      "es": "cuarenta"
+    },
+    {
+      "hanzi": "五十",
+      "pinyin": "wǔshí",
+      "es": "cincuenta"
+    },
+    {
+      "hanzi": "五十六",
+      "pinyin": "wǔshíliù",
+      "es": "cincuenta y seis"
+    },
+    {
+      "hanzi": "六十",
+      "pinyin": "liùshí",
+      "es": "sesenta"
+    },
+    {
+      "hanzi": "七十",
+      "pinyin": "qīshí",
+      "es": "setenta"
+    },
+    {
+      "hanzi": "八十八",
+      "pinyin": "bāshíbā",
+      "es": "ochenta y ocho"
+    },
+    {
+      "hanzi": "九十九",
+      "pinyin": "jiǔshíjiǔ",
+      "es": "noventa y nueve"
+    },
+    {
+      "hanzi": "第一",
+      "pinyin": "dì yī",
+      "es": "primero (第 + número = ordinal)",
+      "nota": "apuntes de clase"
+    },
+    {
+      "hanzi": "水",
+      "pinyin": "shuǐ",
+      "es": "agua"
+    }
   ],
   "frases": [
-    { "hanzi": "你家有几口人？", "pinyin": "Nǐ jiā yǒu jǐ kǒu rén?", "es": "¿Cuántas personas hay en tu familia?", "palabras": ["你", "家", "有", "几", "口", "人", "？"] },
-    { "hanzi": "我家有三口人。", "pinyin": "Wǒ jiā yǒu sān kǒu rén.", "es": "En mi familia somos tres.", "palabras": ["我", "家", "有", "三", "口", "人", "。"] },
-    { "hanzi": "你女儿几岁了？", "pinyin": "Nǐ nǚ'ér jǐ suì le?", "es": "¿Cuántos años tiene tu hija?", "palabras": ["你", "女儿", "几", "岁", "了", "？"] },
-    { "hanzi": "她今年四岁了。", "pinyin": "Tā jīnnián sì suì le.", "es": "Este año tiene cuatro años.", "palabras": ["她", "今年", "四", "岁", "了", "。"] },
-    { "hanzi": "李老师多大了？", "pinyin": "Lǐ lǎoshī duō dà le?", "es": "¿Qué edad tiene el profesor Li?", "palabras": ["李", "老师", "多", "大", "了", "？"] },
-    { "hanzi": "她今年五十岁了。", "pinyin": "Tā jīnnián wǔshí suì le.", "es": "Este año tiene cincuenta años.", "palabras": ["她", "今年", "五十", "岁", "了", "。"] },
-    { "hanzi": "她女儿呢？", "pinyin": "Tā nǚ'ér ne?", "es": "¿Y su hija?", "palabras": ["她", "女儿", "呢", "？"] },
-    { "hanzi": "她女儿今年二十岁。", "pinyin": "Tā nǚ'ér jīnnián èrshí suì.", "es": "Su hija tiene veinte años este año.", "palabras": ["她", "女儿", "今年", "二十", "岁", "。"] },
-    { "hanzi": "你今年多大了？", "pinyin": "Nǐ jīnnián duō dà le?", "es": "¿Cuántos años tienes este año?", "palabras": ["你", "今年", "多", "大", "了", "？"] },
-    { "hanzi": "你有几个汉语老师？", "pinyin": "Nǐ yǒu jǐ ge Hànyǔ lǎoshī?", "es": "¿Cuántos profesores de chino tienes?", "palabras": ["你", "有", "几", "个", "汉语", "老师", "？"] }
+    {
+      "hanzi": "你家有几口人？",
+      "pinyin": "Nǐ jiā yǒu jǐ kǒu rén?",
+      "es": "¿Cuántas personas hay en tu familia?",
+      "palabras": [
+        "你",
+        "家",
+        "有",
+        "几",
+        "口",
+        "人",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "jiā",
+        "yǒu",
+        "jǐ",
+        "kǒu",
+        "rén",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "我家有三口人。",
+      "pinyin": "Wǒ jiā yǒu sān kǒu rén.",
+      "es": "En mi familia somos tres.",
+      "palabras": [
+        "我",
+        "家",
+        "有",
+        "三",
+        "口",
+        "人",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "jiā",
+        "yǒu",
+        "sān",
+        "kǒu",
+        "rén",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "你女儿几岁了？",
+      "pinyin": "Nǐ nǚ'ér jǐ suì le?",
+      "es": "¿Cuántos años tiene tu hija?",
+      "palabras": [
+        "你",
+        "女儿",
+        "几",
+        "岁",
+        "了",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "nǚér",
+        "jǐ",
+        "suì",
+        "le",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "她今年四岁了。",
+      "pinyin": "Tā jīnnián sì suì le.",
+      "es": "Este año tiene cuatro años.",
+      "palabras": [
+        "她",
+        "今年",
+        "四",
+        "岁",
+        "了",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Tā",
+        "jīnnián",
+        "sì",
+        "suì",
+        "le",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "李老师多大了？",
+      "pinyin": "Lǐ lǎoshī duō dà le?",
+      "es": "¿Qué edad tiene el profesor Li?",
+      "palabras": [
+        "李",
+        "老师",
+        "多",
+        "大",
+        "了",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Lǐ",
+        "lǎoshī",
+        "duō",
+        "dà",
+        "le",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "她今年五十岁了。",
+      "pinyin": "Tā jīnnián wǔshí suì le.",
+      "es": "Este año tiene cincuenta años.",
+      "palabras": [
+        "她",
+        "今年",
+        "五十",
+        "岁",
+        "了",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Tā",
+        "jīnnián",
+        "wǔshí",
+        "suì",
+        "le",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "她女儿呢？",
+      "pinyin": "Tā nǚ'ér ne?",
+      "es": "¿Y su hija?",
+      "palabras": [
+        "她",
+        "女儿",
+        "呢",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Tā",
+        "nǚér",
+        "ne",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "她女儿今年二十岁。",
+      "pinyin": "Tā nǚ'ér jīnnián èrshí suì.",
+      "es": "Su hija tiene veinte años este año.",
+      "palabras": [
+        "她",
+        "女儿",
+        "今年",
+        "二十",
+        "岁",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Tā",
+        "nǚér",
+        "jīnnián",
+        "èrshí",
+        "suì",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "你今年多大了？",
+      "pinyin": "Nǐ jīnnián duō dà le?",
+      "es": "¿Cuántos años tienes este año?",
+      "palabras": [
+        "你",
+        "今年",
+        "多",
+        "大",
+        "了",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "jīnnián",
+        "duō",
+        "dà",
+        "le",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "你有几个汉语老师？",
+      "pinyin": "Nǐ yǒu jǐ ge Hànyǔ lǎoshī?",
+      "es": "¿Cuántos profesores de chino tienes?",
+      "palabras": [
+        "你",
+        "有",
+        "几",
+        "个",
+        "汉语",
+        "老师",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "yǒu",
+        "jǐ",
+        "ge",
+        "Hànyǔ",
+        "lǎoshī",
+        "？"
+      ]
+    }
   ],
   "gramatica": [
     {
       "titulo": "El interrogativo 几",
       "explicacion": "几 pregunta por una cantidad, normalmente menor de 10. Suele ir con un clasificador: 几口人, 几个, 几岁.",
       "ejemplos": [
-        { "hanzi": "你有几个汉语老师？", "pinyin": "Nǐ yǒu jǐ ge Hànyǔ lǎoshī?", "es": "¿Cuántos profesores de chino tienes?" },
-        { "hanzi": "李老师家有几口人？", "pinyin": "Lǐ lǎoshī jiā yǒu jǐ kǒu rén?", "es": "¿Cuántos son en la familia del profesor Li?" }
+        {
+          "hanzi": "你有几个汉语老师？",
+          "pinyin": "Nǐ yǒu jǐ ge Hànyǔ lǎoshī?",
+          "es": "¿Cuántos profesores de chino tienes?"
+        },
+        {
+          "hanzi": "李老师家有几口人？",
+          "pinyin": "Lǐ lǎoshī jiā yǒu jǐ kǒu rén?",
+          "es": "¿Cuántos son en la familia del profesor Li?"
+        }
       ]
     },
     {
       "titulo": "Los números hasta 100",
       "explicacion": "Del 1 al 10: 一 二 三 四 五 六 七 八 九 十. Las decenas se forman con número + 十 (二十 = 20, 五十 = 50) y luego se añaden las unidades (二十三 = 23, 九十九 = 99). Del 11 al 19 se dice 十 + unidad (十九 = 19). El cero es 零 (líng). Para los ordinales se antepone 第: 第一 (primero), 第二 (segundo).",
       "ejemplos": [
-        { "hanzi": "二十三", "pinyin": "èrshísān", "es": "23" },
-        { "hanzi": "五十六", "pinyin": "wǔshíliù", "es": "56" },
-        { "hanzi": "八十八", "pinyin": "bāshíbā", "es": "88" }
+        {
+          "hanzi": "二十三",
+          "pinyin": "èrshísān",
+          "es": "23"
+        },
+        {
+          "hanzi": "五十六",
+          "pinyin": "wǔshíliù",
+          "es": "56"
+        },
+        {
+          "hanzi": "八十八",
+          "pinyin": "bāshíbā",
+          "es": "88"
+        }
       ]
     },
     {
       "titulo": "了 para indicar un cambio",
       "explicacion": "了 al final de la frase indica un cambio o una situación nueva, como cumplir años.",
       "ejemplos": [
-        { "hanzi": "李老师今年50岁了。", "pinyin": "Lǐ lǎoshī jīnnián wǔshí suì le.", "es": "El profesor Li ya tiene 50 años." },
-        { "hanzi": "你女儿几岁了？", "pinyin": "Nǐ nǚ'ér jǐ suì le?", "es": "¿Cuántos años tiene ya tu hija?" }
+        {
+          "hanzi": "李老师今年50岁了。",
+          "pinyin": "Lǐ lǎoshī jīnnián wǔshí suì le.",
+          "es": "El profesor Li ya tiene 50 años."
+        },
+        {
+          "hanzi": "你女儿几岁了？",
+          "pinyin": "Nǐ nǚ'ér jǐ suì le?",
+          "es": "¿Cuántos años tiene ya tu hija?"
+        }
       ]
     },
     {
       "titulo": "多 + 大 para preguntar la edad",
       "explicacion": "多大 pregunta la edad de un adulto o de alguien mayor que un niño pequeño. Para niños se suele usar 几岁.",
       "ejemplos": [
-        { "hanzi": "你多大了？", "pinyin": "Nǐ duō dà le?", "es": "¿Cuántos años tienes?" },
-        { "hanzi": "李老师多大了？", "pinyin": "Lǐ lǎoshī duō dà le?", "es": "¿Qué edad tiene el profesor Li?" }
+        {
+          "hanzi": "你多大了？",
+          "pinyin": "Nǐ duō dà le?",
+          "es": "¿Cuántos años tienes?"
+        },
+        {
+          "hanzi": "李老师多大了？",
+          "pinyin": "Lǐ lǎoshī duō dà le?",
+          "es": "¿Qué edad tiene el profesor Li?"
+        }
       ]
     },
     {

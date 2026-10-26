@@ -1,6 +1,6 @@
 # Repaso de chino
 
-App web para repasar las lecciones del curso de chino desde el móvil. Cada persona tiene su cuenta y sus resultados. Cada lección tiene flashcards, ejercicios (significado, carácter, pinyin, escuchar, ordenar frases) y un examen: con un 80% se desbloquea la lección siguiente.
+App web para repasar las lecciones del curso de chino desde el móvil. Cada persona tiene su cuenta y sus resultados. Usa el método pinyin, centrado en escuchar y hablar: cada lección tiene flashcards con audio, ejercicios (escuchar, tonos, leer pinyin, cómo se dice, ordenar frases en pinyin, hablar con el micrófono) y un examen: con un 80% se desbloquea la lección siguiente. Los caracteres chinos están ocultos y se pueden mostrar con el botón 汉字 de la barra superior.
 
 Es una web estática (HTML + JavaScript, sin compilar) publicada en GitHub Pages. El progreso se guarda en Firebase si está configurado; si no, solo en el navegador del dispositivo.
 
@@ -22,7 +22,7 @@ Formato:
     { "hanzi": "米饭", "pinyin": "mǐfàn", "es": "arroz", "nota": "opcional" }
   ],
   "frases": [
-    { "hanzi": "我要米饭。", "pinyin": "Wǒ yào mǐfàn.", "es": "Quiero arroz.", "palabras": ["我", "要", "米饭", "。"] }
+    { "hanzi": "我要米饭。", "pinyin": "Wǒ yào mǐfàn.", "es": "Quiero arroz.", "palabras": ["我", "要", "米饭", "。"], "palabrasPinyin": ["Wǒ", "yào", "mǐfàn", "。"] }
   ],
   "gramatica": [
     { "titulo": "El verbo 要", "explicacion": "…", "ejemplos": [ { "hanzi": "…", "pinyin": "…", "es": "…" } ] }
@@ -32,7 +32,9 @@ Formato:
 ```
 
 - `numero` decide el orden y el desbloqueo.
-- `palabras` es la frase troceada para el ejercicio de ordenar; al unirlas debe dar exactamente `hanzi`.
+- `palabras` es la frase troceada; al unirlas debe dar exactamente `hanzi`.
+- `palabrasPinyin` es el pinyin de cada trozo de `palabras`, en el mismo orden. Es lo que se ordena en el ejercicio de ordenar frases.
+- El ejercicio de hablar usa el reconocimiento de voz del navegador (funciona en Chrome para Android y en Safari para iPhone). Si no está disponible, la persona repite en voz alta y se valora ella misma.
 - No cambies el `id` de una lección ya usada: el progreso se guarda con él.
 
 ## Configurar Firebase (cuentas y resultados en la nube, gratis)

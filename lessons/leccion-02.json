@@ -5,53 +5,316 @@
   "tituloChino": "谢谢你",
   "resumen": "Dar las gracias, responder y despedirse. Pinyin: más iniciales y finales, el tono neutro y dónde se pone la tilde del tono.",
   "vocabulario": [
-    { "hanzi": "谢谢", "pinyin": "xièxie", "es": "gracias, agradecer" },
-    { "hanzi": "不", "pinyin": "bù", "es": "no" },
-    { "hanzi": "不客气", "pinyin": "bú kèqi", "es": "de nada" },
-    { "hanzi": "再见", "pinyin": "zàijiàn", "es": "adiós, hasta luego" },
-    { "hanzi": "山", "pinyin": "shān", "es": "montaña", "nota": "carácter pictográfico" },
-    { "hanzi": "小", "pinyin": "xiǎo", "es": "pequeño", "nota": "carácter pictográfico; lo contrario de 大" },
-    { "hanzi": "大", "pinyin": "dà", "es": "grande" },
-    { "hanzi": "妈妈", "pinyin": "māma", "es": "mamá", "nota": "tono neutro" },
-    { "hanzi": "爸爸", "pinyin": "bàba", "es": "papá", "nota": "tono neutro" },
-    { "hanzi": "爷爷", "pinyin": "yéye", "es": "abuelo (paterno)", "nota": "tono neutro" },
-    { "hanzi": "奶奶", "pinyin": "nǎinai", "es": "abuela (paterna)", "nota": "tono neutro" },
-    { "hanzi": "我们", "pinyin": "wǒmen", "es": "nosotros", "nota": "tono neutro" },
-    { "hanzi": "他们", "pinyin": "tāmen", "es": "ellos", "nota": "tono neutro" },
-    { "hanzi": "朋友", "pinyin": "péngyou", "es": "amigo", "nota": "tono neutro" },
-    { "hanzi": "先生", "pinyin": "xiānsheng", "es": "señor", "nota": "tono neutro" },
-    { "hanzi": "喜欢", "pinyin": "xǐhuan", "es": "gustar", "nota": "tono neutro" },
-    { "hanzi": "认识", "pinyin": "rènshi", "es": "conocer (a alguien)", "nota": "tono neutro" },
-    { "hanzi": "晚上", "pinyin": "wǎnshang", "es": "noche", "nota": "tono neutro" },
-    { "hanzi": "漂亮", "pinyin": "piàoliang", "es": "bonito, guapa", "nota": "tono neutro" },
-    { "hanzi": "儿子", "pinyin": "érzi", "es": "hijo", "nota": "tono neutro" },
-    { "hanzi": "桌子", "pinyin": "zhuōzi", "es": "mesa", "nota": "tono neutro" },
-    { "hanzi": "椅子", "pinyin": "yǐzi", "es": "silla", "nota": "tono neutro" },
-    { "hanzi": "衣服", "pinyin": "yīfu", "es": "ropa", "nota": "tono neutro" },
-    { "hanzi": "三", "pinyin": "sān", "es": "tres", "nota": "práctica de pronunciación" },
-    { "hanzi": "零", "pinyin": "líng", "es": "cero", "nota": "práctica de pronunciación" },
-    { "hanzi": "人", "pinyin": "rén", "es": "persona", "nota": "práctica de pronunciación" },
-    { "hanzi": "手", "pinyin": "shǒu", "es": "mano", "nota": "práctica de pronunciación" },
-    { "hanzi": "吃", "pinyin": "chī", "es": "comer", "nota": "práctica de pronunciación" },
-    { "hanzi": "热", "pinyin": "rè", "es": "calor, caliente", "nota": "práctica de pronunciación" },
-    { "hanzi": "菜", "pinyin": "cài", "es": "plato de comida, verdura", "nota": "práctica de pronunciación" },
-    { "hanzi": "船", "pinyin": "chuán", "es": "barco", "nota": "práctica de pronunciación" },
-    { "hanzi": "床", "pinyin": "chuáng", "es": "cama", "nota": "práctica de pronunciación" },
-    { "hanzi": "熊猫", "pinyin": "xióngmāo", "es": "oso panda", "nota": "práctica de pronunciación" },
-    { "hanzi": "足球", "pinyin": "zúqiú", "es": "fútbol", "nota": "práctica de pronunciación" },
-    { "hanzi": "手表", "pinyin": "shǒubiǎo", "es": "reloj de pulsera", "nota": "práctica de pronunciación" },
-    { "hanzi": "机场", "pinyin": "jīchǎng", "es": "aeropuerto", "nota": "práctica de pronunciación" },
-    { "hanzi": "司机", "pinyin": "sījī", "es": "conductor", "nota": "práctica de pronunciación" },
-    { "hanzi": "冰箱", "pinyin": "bīngxiāng", "es": "nevera", "nota": "práctica de pronunciación" },
-    { "hanzi": "鸡蛋", "pinyin": "jīdàn", "es": "huevo", "nota": "práctica de pronunciación" },
-    { "hanzi": "爬山", "pinyin": "pá shān", "es": "subir a la montaña", "nota": "práctica de pronunciación" }
+    {
+      "hanzi": "谢谢",
+      "pinyin": "xièxie",
+      "es": "gracias, agradecer"
+    },
+    {
+      "hanzi": "不",
+      "pinyin": "bù",
+      "es": "no"
+    },
+    {
+      "hanzi": "不客气",
+      "pinyin": "bú kèqi",
+      "es": "de nada"
+    },
+    {
+      "hanzi": "再见",
+      "pinyin": "zàijiàn",
+      "es": "adiós, hasta luego"
+    },
+    {
+      "hanzi": "山",
+      "pinyin": "shān",
+      "es": "montaña",
+      "nota": "carácter pictográfico"
+    },
+    {
+      "hanzi": "小",
+      "pinyin": "xiǎo",
+      "es": "pequeño",
+      "nota": "carácter pictográfico; lo contrario de 大"
+    },
+    {
+      "hanzi": "大",
+      "pinyin": "dà",
+      "es": "grande"
+    },
+    {
+      "hanzi": "妈妈",
+      "pinyin": "māma",
+      "es": "mamá",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "爸爸",
+      "pinyin": "bàba",
+      "es": "papá",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "爷爷",
+      "pinyin": "yéye",
+      "es": "abuelo (paterno)",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "奶奶",
+      "pinyin": "nǎinai",
+      "es": "abuela (paterna)",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "我们",
+      "pinyin": "wǒmen",
+      "es": "nosotros",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "他们",
+      "pinyin": "tāmen",
+      "es": "ellos",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "朋友",
+      "pinyin": "péngyou",
+      "es": "amigo",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "先生",
+      "pinyin": "xiānsheng",
+      "es": "señor",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "喜欢",
+      "pinyin": "xǐhuan",
+      "es": "gustar",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "认识",
+      "pinyin": "rènshi",
+      "es": "conocer (a alguien)",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "晚上",
+      "pinyin": "wǎnshang",
+      "es": "noche",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "漂亮",
+      "pinyin": "piàoliang",
+      "es": "bonito, guapa",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "儿子",
+      "pinyin": "érzi",
+      "es": "hijo",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "桌子",
+      "pinyin": "zhuōzi",
+      "es": "mesa",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "椅子",
+      "pinyin": "yǐzi",
+      "es": "silla",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "衣服",
+      "pinyin": "yīfu",
+      "es": "ropa",
+      "nota": "tono neutro"
+    },
+    {
+      "hanzi": "三",
+      "pinyin": "sān",
+      "es": "tres",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "零",
+      "pinyin": "líng",
+      "es": "cero",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "人",
+      "pinyin": "rén",
+      "es": "persona",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "手",
+      "pinyin": "shǒu",
+      "es": "mano",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "吃",
+      "pinyin": "chī",
+      "es": "comer",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "热",
+      "pinyin": "rè",
+      "es": "calor, caliente",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "菜",
+      "pinyin": "cài",
+      "es": "plato de comida, verdura",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "船",
+      "pinyin": "chuán",
+      "es": "barco",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "床",
+      "pinyin": "chuáng",
+      "es": "cama",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "熊猫",
+      "pinyin": "xióngmāo",
+      "es": "oso panda",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "足球",
+      "pinyin": "zúqiú",
+      "es": "fútbol",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "手表",
+      "pinyin": "shǒubiǎo",
+      "es": "reloj de pulsera",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "机场",
+      "pinyin": "jīchǎng",
+      "es": "aeropuerto",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "司机",
+      "pinyin": "sījī",
+      "es": "conductor",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "冰箱",
+      "pinyin": "bīngxiāng",
+      "es": "nevera",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "鸡蛋",
+      "pinyin": "jīdàn",
+      "es": "huevo",
+      "nota": "práctica de pronunciación"
+    },
+    {
+      "hanzi": "爬山",
+      "pinyin": "pá shān",
+      "es": "subir a la montaña",
+      "nota": "práctica de pronunciación"
+    }
   ],
   "frases": [
-    { "hanzi": "谢谢！", "pinyin": "Xièxie!", "es": "¡Gracias!", "palabras": ["谢谢", "！"] },
-    { "hanzi": "不谢！", "pinyin": "Bú xiè!", "es": "¡No hay de qué!", "palabras": ["不", "谢", "！"] },
-    { "hanzi": "谢谢你！", "pinyin": "Xièxie nǐ!", "es": "¡Gracias (a ti)!", "palabras": ["谢谢", "你", "！"] },
-    { "hanzi": "不客气！", "pinyin": "Bú kèqi!", "es": "¡De nada!", "palabras": ["不", "客气", "！"] },
-    { "hanzi": "再见！", "pinyin": "Zàijiàn!", "es": "¡Adiós!", "palabras": ["再", "见", "！"] }
+    {
+      "hanzi": "谢谢！",
+      "pinyin": "Xièxie!",
+      "es": "¡Gracias!",
+      "palabras": [
+        "谢谢",
+        "！"
+      ],
+      "palabrasPinyin": [
+        "Xièxie",
+        "！"
+      ]
+    },
+    {
+      "hanzi": "不谢！",
+      "pinyin": "Bú xiè!",
+      "es": "¡No hay de qué!",
+      "palabras": [
+        "不",
+        "谢",
+        "！"
+      ],
+      "palabrasPinyin": [
+        "Bú",
+        "xiè",
+        "！"
+      ]
+    },
+    {
+      "hanzi": "谢谢你！",
+      "pinyin": "Xièxie nǐ!",
+      "es": "¡Gracias (a ti)!",
+      "palabras": [
+        "谢谢",
+        "你",
+        "！"
+      ],
+      "palabrasPinyin": [
+        "Xièxie",
+        "nǐ",
+        "！"
+      ]
+    },
+    {
+      "hanzi": "不客气！",
+      "pinyin": "Bú kèqi!",
+      "es": "¡De nada!",
+      "palabras": [
+        "不",
+        "客气",
+        "！"
+      ],
+      "palabrasPinyin": [
+        "Bú",
+        "kèqi",
+        "！"
+      ]
+    },
+    {
+      "hanzi": "再见！",
+      "pinyin": "Zàijiàn!",
+      "es": "¡Adiós!",
+      "palabras": [
+        "再",
+        "见",
+        "！"
+      ],
+      "palabrasPinyin": [
+        "Zài",
+        "jiàn",
+        "！"
+      ]
+    }
   ],
   "gramatica": [
     {
@@ -62,25 +325,53 @@
       "titulo": "El tono neutro",
       "explicacion": "Además de los cuatro tonos hay un tono corto y ligero, el tono neutro (轻声). No se marca con tilde. Es típico en la segunda sílaba de palabras repetidas o con sufijos como 们 y 子.",
       "ejemplos": [
-        { "hanzi": "妈妈", "pinyin": "māma", "es": "mamá" },
-        { "hanzi": "爸爸", "pinyin": "bàba", "es": "papá" },
-        { "hanzi": "我们", "pinyin": "wǒmen", "es": "nosotros" }
+        {
+          "hanzi": "妈妈",
+          "pinyin": "māma",
+          "es": "mamá"
+        },
+        {
+          "hanzi": "爸爸",
+          "pinyin": "bàba",
+          "es": "papá"
+        },
+        {
+          "hanzi": "我们",
+          "pinyin": "wǒmen",
+          "es": "nosotros"
+        }
       ]
     },
     {
       "titulo": "Dónde se pone la marca del tono",
       "explicacion": "La marca va sobre la vocal más abierta, en este orden: a, o, e, i, u, ü. Excepción: en iu (forma corta de iou) la marca va sobre la u. El tono neutro no se marca.",
       "ejemplos": [
-        { "hanzi": "学校", "pinyin": "xuéxiào", "es": "escuela" },
-        { "hanzi": "篮球", "pinyin": "lánqiú", "es": "baloncesto" }
+        {
+          "hanzi": "学校",
+          "pinyin": "xuéxiào",
+          "es": "escuela"
+        },
+        {
+          "hanzi": "篮球",
+          "pinyin": "lánqiú",
+          "es": "baloncesto"
+        }
       ]
     },
     {
       "titulo": "Abreviaturas: iou, uei, uen",
       "explicacion": "Cuando iou, uei y uen van detrás de una inicial se escriben iu, ui y un. Por ejemplo: niu, gui, lun.",
       "ejemplos": [
-        { "hanzi": "水果", "pinyin": "shuǐguǒ", "es": "fruta" },
-        { "hanzi": "牛奶", "pinyin": "niúnǎi", "es": "leche" }
+        {
+          "hanzi": "水果",
+          "pinyin": "shuǐguǒ",
+          "es": "fruta"
+        },
+        {
+          "hanzi": "牛奶",
+          "pinyin": "niúnǎi",
+          "es": "leche"
+        }
       ]
     },
     {

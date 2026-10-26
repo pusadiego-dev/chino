@@ -169,3 +169,20 @@ label { font-size: 14px; color: var(--muted); }
 .tag { display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--red-soft); color: var(--red); }
 .vocab.frase { flex-wrap: wrap; }
 .vocab.frase .hz { font-size: 20px; min-width: 0; flex: 1 1 100%; }
+
+/* Método pinyin */
+.py { font-weight: 600; }
+.prompt .big.py { font-family: Inter, system-ui, sans-serif; font-size: 40px; color: var(--red); }
+.prompt .mid.py { color: var(--red); font-size: 26px; letter-spacing: .5px; }
+.bigpy { font-size: 40px; font-weight: 700; color: var(--red); line-height: 1.2; }
+.big-py { font-size: 22px; color: var(--red); margin-top: 8px; }
+.hzsmall { font-family: var(--hz); color: var(--muted); font-size: 18px; margin-top: 4px; }
+.hzopt { font-family: var(--hz); color: var(--muted); font-size: 14px; font-weight: 400; }
+.opt.pyopt { font-size: 19px; font-weight: 600; text-align: center; }
+.speak.big-speak { width: 84px; height: 84px; font-size: 38px; margin: 0 auto 8px; display: block; }
+.face .speak.big-speak { width: 56px; height: 56px; font-size: 26px; margin: 12px auto; }
+.tile { font-family: Inter, system-ui, sans-serif; font-size: 18px; font-weight: 600; }
+.btn.mic { min-height: 64px; font-size: 18px; margin-top: 8px; }
+.vocab .py { font-size: 18px; }
+.vocab.frase .py { font-size: 17px; }
+#user-box #hz-toggle { font-family: var(--hz); }
