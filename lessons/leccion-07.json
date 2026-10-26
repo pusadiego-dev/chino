@@ -1,0 +1,97 @@
+{
+  "id": "leccion-07",
+  "numero": 7,
+  "titulo": "¿Qué día es hoy?",
+  "tituloChino": "今天几号",
+  "resumen": "Fechas, meses y días de la semana. Ayer, hoy y mañana, y decir adónde vas y a qué con 去.",
+  "vocabulario": [
+    { "hanzi": "请", "pinyin": "qǐng", "es": "por favor (cortesía)" },
+    { "hanzi": "问", "pinyin": "wèn", "es": "preguntar" },
+    { "hanzi": "请问", "pinyin": "qǐngwèn", "es": "disculpe, una pregunta" },
+    { "hanzi": "今天", "pinyin": "jīntiān", "es": "hoy" },
+    { "hanzi": "号", "pinyin": "hào", "es": "día del mes (número)" },
+    { "hanzi": "月", "pinyin": "yuè", "es": "mes" },
+    { "hanzi": "星期", "pinyin": "xīngqī", "es": "semana" },
+    { "hanzi": "昨天", "pinyin": "zuótiān", "es": "ayer" },
+    { "hanzi": "明天", "pinyin": "míngtiān", "es": "mañana" },
+    { "hanzi": "去", "pinyin": "qù", "es": "ir" },
+    { "hanzi": "学校", "pinyin": "xuéxiào", "es": "escuela" },
+    { "hanzi": "看", "pinyin": "kàn", "es": "mirar, ver, leer" },
+    { "hanzi": "书", "pinyin": "shū", "es": "libro" },
+    { "hanzi": "看书", "pinyin": "kàn shū", "es": "leer (libros)" },
+    { "hanzi": "哪儿", "pinyin": "nǎr", "es": "dónde" },
+    { "hanzi": "星期一", "pinyin": "xīngqī yī", "es": "lunes" },
+    { "hanzi": "星期二", "pinyin": "xīngqī èr", "es": "martes" },
+    { "hanzi": "星期三", "pinyin": "xīngqī sān", "es": "miércoles" },
+    { "hanzi": "星期四", "pinyin": "xīngqī sì", "es": "jueves" },
+    { "hanzi": "星期五", "pinyin": "xīngqī wǔ", "es": "viernes" },
+    { "hanzi": "星期六", "pinyin": "xīngqī liù", "es": "sábado" },
+    { "hanzi": "星期日", "pinyin": "xīngqīrì", "es": "domingo" },
+    { "hanzi": "星期天", "pinyin": "xīngqītiān", "es": "domingo (más coloquial)" },
+    { "hanzi": "一月", "pinyin": "yī yuè", "es": "enero" },
+    { "hanzi": "二月", "pinyin": "èr yuè", "es": "febrero" },
+    { "hanzi": "三月", "pinyin": "sān yuè", "es": "marzo" },
+    { "hanzi": "四月", "pinyin": "sì yuè", "es": "abril" },
+    { "hanzi": "五月", "pinyin": "wǔ yuè", "es": "mayo" },
+    { "hanzi": "六月", "pinyin": "liù yuè", "es": "junio" },
+    { "hanzi": "七月", "pinyin": "qī yuè", "es": "julio" },
+    { "hanzi": "八月", "pinyin": "bā yuè", "es": "agosto" },
+    { "hanzi": "九月", "pinyin": "jiǔ yuè", "es": "septiembre" },
+    { "hanzi": "十月", "pinyin": "shí yuè", "es": "octubre" },
+    { "hanzi": "十一月", "pinyin": "shíyī yuè", "es": "noviembre" },
+    { "hanzi": "十二月", "pinyin": "shí'èr yuè", "es": "diciembre" },
+    { "hanzi": "时间", "pinyin": "shíjiān", "es": "tiempo, hora", "nota": "práctica de tonos" },
+    { "hanzi": "银行", "pinyin": "yínháng", "es": "banco", "nota": "práctica de tonos" },
+    { "hanzi": "词典", "pinyin": "cídiǎn", "es": "diccionario", "nota": "práctica de tonos" },
+    { "hanzi": "蓝色", "pinyin": "lánsè", "es": "azul", "nota": "práctica de tonos" },
+    { "hanzi": "苹果", "pinyin": "píngguǒ", "es": "manzana", "nota": "práctica de tonos" },
+    { "hanzi": "明年", "pinyin": "míngnián", "es": "el año que viene", "nota": "práctica de tonos" },
+    { "hanzi": "游泳", "pinyin": "yóuyǒng", "es": "nadar", "nota": "práctica de tonos" }
+  ],
+  "frases": [
+    { "hanzi": "请问，今天几号？", "pinyin": "Qǐngwèn, jīntiān jǐ hào?", "es": "Disculpe, ¿qué día es hoy?", "palabras": ["请问", "，", "今天", "几", "号", "？"] },
+    { "hanzi": "今天9月1号。", "pinyin": "Jīntiān jiǔ yuè yī hào.", "es": "Hoy es 1 de septiembre.", "palabras": ["今天", "9", "月", "1", "号", "。"] },
+    { "hanzi": "今天星期几？", "pinyin": "Jīntiān xīngqī jǐ?", "es": "¿Qué día de la semana es hoy?", "palabras": ["今天", "星期", "几", "？"] },
+    { "hanzi": "星期三。", "pinyin": "Xīngqī sān.", "es": "Miércoles.", "palabras": ["星期", "三", "。"] },
+    { "hanzi": "昨天是几月几号？", "pinyin": "Zuótiān shì jǐ yuè jǐ hào?", "es": "¿Qué fecha fue ayer?", "palabras": ["昨天", "是", "几", "月", "几", "号", "？"] },
+    { "hanzi": "昨天是8月31号，星期二。", "pinyin": "Zuótiān shì bā yuè sānshíyī hào, xīngqī èr.", "es": "Ayer fue martes, 31 de agosto.", "palabras": ["昨天", "是", "8", "月", "31", "号", "，", "星期", "二", "。"] },
+    { "hanzi": "明天呢？", "pinyin": "Míngtiān ne?", "es": "¿Y mañana?", "palabras": ["明天", "呢", "？"] },
+    { "hanzi": "明天是9月2号，星期四。", "pinyin": "Míngtiān shì jiǔ yuè èr hào, xīngqī sì.", "es": "Mañana es jueves, 2 de septiembre.", "palabras": ["明天", "是", "9", "月", "2", "号", "，", "星期", "四", "。"] },
+    { "hanzi": "明天星期六，你去学校吗？", "pinyin": "Míngtiān xīngqī liù, nǐ qù xuéxiào ma?", "es": "Mañana es sábado, ¿vas a la escuela?", "palabras": ["明天", "星期", "六", "，", "你", "去", "学校", "吗", "？"] },
+    { "hanzi": "我去学校。", "pinyin": "Wǒ qù xuéxiào.", "es": "Sí, voy a la escuela.", "palabras": ["我", "去", "学校", "。"] },
+    { "hanzi": "你去学校做什么？", "pinyin": "Nǐ qù xuéxiào zuò shénme?", "es": "¿A qué vas a la escuela?", "palabras": ["你", "去", "学校", "做", "什么", "？"] },
+    { "hanzi": "我去学校看书。", "pinyin": "Wǒ qù xuéxiào kàn shū.", "es": "Voy a la escuela a leer.", "palabras": ["我", "去", "学校", "看", "书", "。"] },
+    { "hanzi": "明天你去哪儿做什么？", "pinyin": "Míngtiān nǐ qù nǎr zuò shénme?", "es": "¿Adónde vas mañana y a qué?", "palabras": ["明天", "你", "去", "哪儿", "做", "什么", "？"] }
+  ],
+  "gramatica": [
+    {
+      "titulo": "Cómo decir la fecha",
+      "explicacion": "En chino se va de lo grande a lo pequeño: primero el mes (月), luego el día (号, o 日 por escrito) y al final el día de la semana (星期). Los días de la semana son 星期 + número del 一 al 六, y el domingo es 星期日 o 星期天. Para preguntar se usa 几: 几月几号？ 星期几？",
+      "ejemplos": [
+        { "hanzi": "今天9月1号，星期三。", "pinyin": "Jīntiān jiǔ yuè yī hào, xīngqī sān.", "es": "Hoy es miércoles, 1 de septiembre." },
+        { "hanzi": "昨天是8月31号，星期二。", "pinyin": "Zuótiān shì bā yuè sānshíyī hào, xīngqī èr.", "es": "Ayer fue martes, 31 de agosto." }
+      ]
+    },
+    {
+      "titulo": "Frases con predicado nominal",
+      "explicacion": "Para la edad, la fecha o el día de la semana, el predicado puede ser directamente un sustantivo o número, sin 是.",
+      "ejemplos": [
+        { "hanzi": "今天星期三。", "pinyin": "Jīntiān xīngqī sān.", "es": "Hoy es miércoles." },
+        { "hanzi": "今天9月1号。", "pinyin": "Jīntiān jiǔ yuè yī hào.", "es": "Hoy es 1 de septiembre." }
+      ]
+    },
+    {
+      "titulo": "去 + lugar + hacer algo",
+      "explicacion": "Dos verbos seguidos: el primero (去) dice adónde va alguien y el segundo dice a qué va.",
+      "ejemplos": [
+        { "hanzi": "我去学校看书。", "pinyin": "Wǒ qù xuéxiào kàn shū.", "es": "Voy a la escuela a leer." },
+        { "hanzi": "你去学校做什么？", "pinyin": "Nǐ qù xuéxiào zuò shénme?", "es": "¿A qué vas a la escuela?" }
+      ]
+    },
+    {
+      "titulo": "Tonos en palabras de dos sílabas (2)",
+      "explicacion": "2.º tono + 1.º/2.º/3.º/4.º: 时间 shíjiān, 银行 yínháng, 词典 cídiǎn, 蓝色 lánsè."
+    }
+  ],
+  "notas": "La foto de la página de gramática (IMG_7616) salió borrosa; esta parte se ha completado con el contenido estándar de la lección. Si quieres, vuelve a subir esa foto y la reviso."
+}
