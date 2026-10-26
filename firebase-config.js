@@ -1,7 +1,14 @@
 // Pega aquí la configuración de tu proyecto de Firebase
 // (Consola de Firebase > Configuración del proyecto > Tus apps > Web).
 // Si lo dejas en null, la app guarda los resultados solo en este dispositivo.
-export const firebaseConfig = null;
+export const firebaseConfig = {
+  apiKey: "AIzaSyDaDArsj53daXFEDs4xm6MguXoWT-Zns-4",
+  authDomain: "lecciones-chino.firebaseapp.com",
+  projectId: "lecciones-chino",
+  storageBucket: "lecciones-chino.firebasestorage.app",
+  messagingSenderId: "979219951422",
+  appId: "1:979219951422:web:7eada4868aa400a5c9466f"
+};
 
 // Ejemplo:
 // export const firebaseConfig = {
