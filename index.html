@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" href="icons/icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+SC:wght@400;700&display=swap">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
   <header class="topbar">
@@ -20,6 +20,15 @@
     <div id="user-box"></div>
   </header>
   <main id="app"><p class="loading">Cargando…</p></main>
-  <script type="module" src="js/app.js"></script>
+  <script>
+    // Si hay una versión nueva publicada, carga la página con otra URL para saltarse la caché del móvil.
+    (function () {
+      var V = '3';
+      fetch('version.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) {
+        if (d.v !== V && new URLSearchParams(location.search).get('v') !== d.v) location.replace(location.pathname + '?v=' + d.v + location.hash);
+      }).catch(function () {});
+    })();
+  </script>
+  <script type="module" src="js/app.js?v=3"></script>
 </body>
 </html>

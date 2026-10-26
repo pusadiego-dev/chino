@@ -58,3 +58,13 @@ python3 -m http.server 8000
 ## Instalar en el móvil
 
 Abre la web en el móvil y elige "Añadir a pantalla de inicio" (Safari: botón compartir; Chrome: menú ⋮). Se abre como una app.
+
+## Publicar cambios (y que se vean en el móvil)
+
+El móvil guarda en caché los archivos unos minutos. Para que todo el mundo reciba la versión nueva al momento, cada vez que cambies código sube el número de versión en todos los sitios a la vez:
+
+```sh
+sed -i 's/v=3/v=4/g; s/"v":"3"/"v":"4"/; s/var V = '"'"'3'"'"'/var V = '"'"'4'"'"'/' index.html js/app.js js/store.js version.json
+```
+
+Al abrir la app, compara su versión con `version.json` y, si hay una nueva, se recarga sola. Añadir o cambiar lecciones no necesita esto: los JSON se piden siempre sin caché.
