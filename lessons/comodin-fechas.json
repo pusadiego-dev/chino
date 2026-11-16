@@ -1,0 +1,680 @@
+{
+  "id": "comodin-fechas",
+  "numero": 2,
+  "comodin": true,
+  "titulo": "Días, semanas, meses y años",
+  "tituloChino": "年月日",
+  "resumen": "Los días de la semana, los meses, los años y las fechas completas. Ayer, hoy y mañana, la semana o el mes que viene, y cómo preguntar por un cumpleaños.",
+  "vocabulario": [
+    {
+      "hanzi": "天",
+      "pinyin": "tiān",
+      "es": "día"
+    },
+    {
+      "hanzi": "星期",
+      "pinyin": "xīngqī",
+      "es": "semana"
+    },
+    {
+      "hanzi": "周末",
+      "pinyin": "zhōumò",
+      "es": "fin de semana"
+    },
+    {
+      "hanzi": "月",
+      "pinyin": "yuè",
+      "es": "mes; luna"
+    },
+    {
+      "hanzi": "年",
+      "pinyin": "nián",
+      "es": "año"
+    },
+    {
+      "hanzi": "号",
+      "pinyin": "hào",
+      "es": "día del mes (hablado)"
+    },
+    {
+      "hanzi": "日",
+      "pinyin": "rì",
+      "es": "día del mes (escrito); sol"
+    },
+    {
+      "hanzi": "星期一",
+      "pinyin": "xīngqī yī",
+      "es": "lunes"
+    },
+    {
+      "hanzi": "星期二",
+      "pinyin": "xīngqī èr",
+      "es": "martes"
+    },
+    {
+      "hanzi": "星期三",
+      "pinyin": "xīngqī sān",
+      "es": "miércoles"
+    },
+    {
+      "hanzi": "星期四",
+      "pinyin": "xīngqī sì",
+      "es": "jueves"
+    },
+    {
+      "hanzi": "星期五",
+      "pinyin": "xīngqī wǔ",
+      "es": "viernes"
+    },
+    {
+      "hanzi": "星期六",
+      "pinyin": "xīngqī liù",
+      "es": "sábado"
+    },
+    {
+      "hanzi": "星期天",
+      "pinyin": "xīngqītiān",
+      "es": "domingo"
+    },
+    {
+      "hanzi": "星期日",
+      "pinyin": "xīngqīrì",
+      "es": "domingo (más formal)"
+    },
+    {
+      "hanzi": "一月",
+      "pinyin": "yī yuè",
+      "es": "enero"
+    },
+    {
+      "hanzi": "二月",
+      "pinyin": "èr yuè",
+      "es": "febrero"
+    },
+    {
+      "hanzi": "三月",
+      "pinyin": "sān yuè",
+      "es": "marzo"
+    },
+    {
+      "hanzi": "四月",
+      "pinyin": "sì yuè",
+      "es": "abril"
+    },
+    {
+      "hanzi": "五月",
+      "pinyin": "wǔ yuè",
+      "es": "mayo"
+    },
+    {
+      "hanzi": "六月",
+      "pinyin": "liù yuè",
+      "es": "junio"
+    },
+    {
+      "hanzi": "七月",
+      "pinyin": "qī yuè",
+      "es": "julio"
+    },
+    {
+      "hanzi": "八月",
+      "pinyin": "bā yuè",
+      "es": "agosto"
+    },
+    {
+      "hanzi": "九月",
+      "pinyin": "jiǔ yuè",
+      "es": "septiembre"
+    },
+    {
+      "hanzi": "十月",
+      "pinyin": "shí yuè",
+      "es": "octubre"
+    },
+    {
+      "hanzi": "十一月",
+      "pinyin": "shíyī yuè",
+      "es": "noviembre"
+    },
+    {
+      "hanzi": "十二月",
+      "pinyin": "shí'èr yuè",
+      "es": "diciembre"
+    },
+    {
+      "hanzi": "前天",
+      "pinyin": "qiántiān",
+      "es": "anteayer"
+    },
+    {
+      "hanzi": "昨天",
+      "pinyin": "zuótiān",
+      "es": "ayer"
+    },
+    {
+      "hanzi": "今天",
+      "pinyin": "jīntiān",
+      "es": "hoy"
+    },
+    {
+      "hanzi": "明天",
+      "pinyin": "míngtiān",
+      "es": "mañana"
+    },
+    {
+      "hanzi": "后天",
+      "pinyin": "hòutiān",
+      "es": "pasado mañana"
+    },
+    {
+      "hanzi": "上个星期",
+      "pinyin": "shàng ge xīngqī",
+      "es": "la semana pasada"
+    },
+    {
+      "hanzi": "这个星期",
+      "pinyin": "zhège xīngqī",
+      "es": "esta semana"
+    },
+    {
+      "hanzi": "下个星期",
+      "pinyin": "xià ge xīngqī",
+      "es": "la semana que viene"
+    },
+    {
+      "hanzi": "上个月",
+      "pinyin": "shàng ge yuè",
+      "es": "el mes pasado"
+    },
+    {
+      "hanzi": "下个月",
+      "pinyin": "xià ge yuè",
+      "es": "el mes que viene"
+    },
+    {
+      "hanzi": "去年",
+      "pinyin": "qùnián",
+      "es": "el año pasado"
+    },
+    {
+      "hanzi": "今年",
+      "pinyin": "jīnnián",
+      "es": "este año"
+    },
+    {
+      "hanzi": "明年",
+      "pinyin": "míngnián",
+      "es": "el año que viene"
+    },
+    {
+      "hanzi": "每天",
+      "pinyin": "měitiān",
+      "es": "cada día"
+    },
+    {
+      "hanzi": "生日",
+      "pinyin": "shēngrì",
+      "es": "cumpleaños"
+    },
+    {
+      "hanzi": "出生",
+      "pinyin": "chūshēng",
+      "es": "nacer"
+    },
+    {
+      "hanzi": "几",
+      "pinyin": "jǐ",
+      "es": "qué (número)"
+    },
+    {
+      "hanzi": "哪年",
+      "pinyin": "nǎ nián",
+      "es": "qué año"
+    }
+  ],
+  "frases": [
+    {
+      "hanzi": "今天几月几号？",
+      "pinyin": "Jīntiān jǐ yuè jǐ hào?",
+      "es": "¿Qué fecha es hoy?",
+      "palabras": [
+        "今天",
+        "几",
+        "月",
+        "几",
+        "号",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Jīntiān",
+        "jǐ",
+        "yuè",
+        "jǐ",
+        "hào",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "今天十一月十六号，星期一。",
+      "pinyin": "Jīntiān shíyī yuè shíliù hào, xīngqī yī.",
+      "es": "Hoy es lunes, 16 de noviembre.",
+      "palabras": [
+        "今天",
+        "十一",
+        "月",
+        "十六",
+        "号",
+        "，",
+        "星期",
+        "一",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Jīntiān",
+        "shíyī",
+        "yuè",
+        "shíliù",
+        "hào",
+        "，",
+        "xīngqī",
+        "yī",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "今天是二零二六年十一月十六号。",
+      "pinyin": "Jīntiān shì èr líng èr liù nián shíyī yuè shíliù hào.",
+      "es": "Hoy es 16 de noviembre de 2026.",
+      "palabras": [
+        "今天",
+        "是",
+        "二零二六",
+        "年",
+        "十一",
+        "月",
+        "十六",
+        "号",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Jīntiān",
+        "shì",
+        "èr líng èr liù",
+        "nián",
+        "shíyī",
+        "yuè",
+        "shíliù",
+        "hào",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "明天星期几？",
+      "pinyin": "Míngtiān xīngqī jǐ?",
+      "es": "¿Qué día de la semana es mañana?",
+      "palabras": [
+        "明天",
+        "星期",
+        "几",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Míngtiān",
+        "xīngqī",
+        "jǐ",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "后天是星期三。",
+      "pinyin": "Hòutiān shì xīngqī sān.",
+      "es": "Pasado mañana es miércoles.",
+      "palabras": [
+        "后天",
+        "是",
+        "星期",
+        "三",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Hòutiān",
+        "shì",
+        "xīngqī",
+        "sān",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "你的生日是几月几号？",
+      "pinyin": "Nǐ de shēngrì shì jǐ yuè jǐ hào?",
+      "es": "¿Cuándo es tu cumpleaños?",
+      "palabras": [
+        "你",
+        "的",
+        "生日",
+        "是",
+        "几",
+        "月",
+        "几",
+        "号",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "de",
+        "shēngrì",
+        "shì",
+        "jǐ",
+        "yuè",
+        "jǐ",
+        "hào",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "我的生日是五月八号。",
+      "pinyin": "Wǒ de shēngrì shì wǔ yuè bā hào.",
+      "es": "Mi cumpleaños es el 8 de mayo.",
+      "palabras": [
+        "我",
+        "的",
+        "生日",
+        "是",
+        "五",
+        "月",
+        "八",
+        "号",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "de",
+        "shēngrì",
+        "shì",
+        "wǔ",
+        "yuè",
+        "bā",
+        "hào",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "你是哪年出生的？",
+      "pinyin": "Nǐ shì nǎ nián chūshēng de?",
+      "es": "¿En qué año naciste?",
+      "palabras": [
+        "你",
+        "是",
+        "哪",
+        "年",
+        "出生",
+        "的",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "shì",
+        "nǎ",
+        "nián",
+        "chūshēng",
+        "de",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "我是一九九零年出生的。",
+      "pinyin": "Wǒ shì yī jiǔ jiǔ líng nián chūshēng de.",
+      "es": "Nací en 1990.",
+      "palabras": [
+        "我",
+        "是",
+        "一九九零",
+        "年",
+        "出生",
+        "的",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "shì",
+        "yī jiǔ jiǔ líng",
+        "nián",
+        "chūshēng",
+        "de",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "一个星期有七天。",
+      "pinyin": "Yí ge xīngqī yǒu qī tiān.",
+      "es": "Una semana tiene siete días.",
+      "palabras": [
+        "一",
+        "个",
+        "星期",
+        "有",
+        "七",
+        "天",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Yí",
+        "ge",
+        "xīngqī",
+        "yǒu",
+        "qī",
+        "tiān",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "一年有十二个月。",
+      "pinyin": "Yì nián yǒu shí'èr gè yuè.",
+      "es": "Un año tiene doce meses.",
+      "palabras": [
+        "一",
+        "年",
+        "有",
+        "十二",
+        "个",
+        "月",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Yì",
+        "nián",
+        "yǒu",
+        "shí'èr",
+        "gè",
+        "yuè",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "下个星期我去中国。",
+      "pinyin": "Xià ge xīngqī wǒ qù Zhōngguó.",
+      "es": "La semana que viene voy a China.",
+      "palabras": [
+        "下",
+        "个",
+        "星期",
+        "我",
+        "去",
+        "中国",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Xià",
+        "ge",
+        "xīngqī",
+        "wǒ",
+        "qù",
+        "Zhōngguó",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "我周末不工作。",
+      "pinyin": "Wǒ zhōumò bù gōngzuò.",
+      "es": "No trabajo los fines de semana.",
+      "palabras": [
+        "我",
+        "周末",
+        "不",
+        "工作",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "zhōumò",
+        "bù",
+        "gōngzuò",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "明年我去北京。",
+      "pinyin": "Míngnián wǒ qù Běijīng.",
+      "es": "El año que viene voy a Pekín.",
+      "palabras": [
+        "明年",
+        "我",
+        "去",
+        "北京",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Míngnián",
+        "wǒ",
+        "qù",
+        "Běijīng",
+        "。"
+      ]
+    }
+  ],
+  "gramatica": [
+    {
+      "titulo": "La fecha va de lo grande a lo pequeño",
+      "explicacion": "Al revés que en español: primero el año (年), luego el mes (月), el día (号) y al final el día de la semana (星期). Para decirla no hace falta 是.",
+      "ejemplos": [
+        {
+          "hanzi": "二零二六年十一月十六号，星期一",
+          "pinyin": "Èr líng èr liù nián shíyī yuè shíliù hào, xīngqī yī",
+          "es": "lunes, 16 de noviembre de 2026"
+        },
+        {
+          "hanzi": "今天五月八号。",
+          "pinyin": "Jīntiān wǔ yuè bā hào.",
+          "es": "Hoy es 8 de mayo."
+        }
+      ]
+    },
+    {
+      "titulo": "Los años se dicen cifra a cifra",
+      "explicacion": "Un año no se lee como un número entero: se dice cada cifra y después 年. El 0 es 零 líng.",
+      "ejemplos": [
+        {
+          "hanzi": "一九九零年",
+          "pinyin": "Yī jiǔ jiǔ líng nián",
+          "es": "1990"
+        },
+        {
+          "hanzi": "二零二六年",
+          "pinyin": "Èr líng èr liù nián",
+          "es": "2026"
+        }
+      ]
+    },
+    {
+      "titulo": "Días de la semana y meses: 星期 o número + 月",
+      "explicacion": "Los días son 星期 + 一 a 六 (lunes a sábado), y el domingo es 星期天 o 星期日. Los meses son el número + 月: 一月 es enero, 十二月 diciembre. Verás también 周一, 周二… como forma corta de los días.",
+      "ejemplos": [
+        {
+          "hanzi": "星期五",
+          "pinyin": "Xīngqī wǔ",
+          "es": "viernes"
+        },
+        {
+          "hanzi": "九月",
+          "pinyin": "Jiǔ yuè",
+          "es": "septiembre"
+        }
+      ]
+    },
+    {
+      "titulo": "Cuidado con el orden: 一个月 o 一月",
+      "explicacion": "Con clasificador es una duración y sin él es un nombre: 一个月 es «un mes» y 一月 es «enero». Igual con la semana: 一个星期 es «una semana» y 星期一 es «lunes».",
+      "ejemplos": [
+        {
+          "hanzi": "一个月",
+          "pinyin": "Yí ge yuè",
+          "es": "un mes"
+        },
+        {
+          "hanzi": "一月",
+          "pinyin": "Yī yuè",
+          "es": "enero"
+        },
+        {
+          "hanzi": "一个星期",
+          "pinyin": "Yí ge xīngqī",
+          "es": "una semana"
+        }
+      ]
+    },
+    {
+      "titulo": "Pasado, presente y futuro: 上, 这, 下",
+      "explicacion": "Para semanas y meses se usa 上 (anterior), 这 (este) y 下 (siguiente) + 个: 上个星期, 下个月. Los años son especiales: 去年, 今年, 明年. Y los días: 前天, 昨天, 今天, 明天, 后天.",
+      "ejemplos": [
+        {
+          "hanzi": "上个月",
+          "pinyin": "Shàng ge yuè",
+          "es": "el mes pasado"
+        },
+        {
+          "hanzi": "下个星期",
+          "pinyin": "Xià ge xīngqī",
+          "es": "la semana que viene"
+        },
+        {
+          "hanzi": "去年",
+          "pinyin": "Qùnián",
+          "es": "el año pasado"
+        }
+      ]
+    },
+    {
+      "titulo": "Preguntar con 几 y 哪",
+      "explicacion": "Se pone 几 donde iría el número, sin cambiar el orden: 几月几号？ 星期几？ Para el año se dice 哪年.",
+      "ejemplos": [
+        {
+          "hanzi": "今天星期几？",
+          "pinyin": "Jīntiān xīngqī jǐ?",
+          "es": "¿Qué día es hoy?"
+        },
+        {
+          "hanzi": "你的生日是几月几号？",
+          "pinyin": "Nǐ de shēngrì shì jǐ yuè jǐ hào?",
+          "es": "¿Cuándo es tu cumpleaños?"
+        }
+      ]
+    },
+    {
+      "titulo": "El cuándo va antes del verbo",
+      "explicacion": "Las palabras de tiempo (明天, 下个星期, 周末…) van delante del verbo, al principio de la frase o justo detrás del sujeto. Nunca al final como en español.",
+      "ejemplos": [
+        {
+          "hanzi": "我明天去学校。",
+          "pinyin": "Wǒ míngtiān qù xuéxiào.",
+          "es": "Mañana voy a la escuela."
+        },
+        {
+          "hanzi": "明天我去学校。",
+          "pinyin": "Míngtiān wǒ qù xuéxiào.",
+          "es": "Mañana voy a la escuela."
+        }
+      ]
+    }
+  ],
+  "notas": "Lección comodín: siempre abierta y fuera del orden de las lecciones. Para practicar, cada mañana di en voz alta la fecha completa y el día de la semana."
+}

@@ -236,9 +236,25 @@ function numToZh(n) {
   if (n < 10) return ZH_DIGITS[n];
   if (n < 20) return '十' + (n % 10 ? ZH_DIGITS[n % 10] : '');
   if (n < 100) return ZH_DIGITS[Math.floor(n / 10)] + '十' + (n % 10 ? ZH_DIGITS[n % 10] : '');
-  return String(n);
+  // Centenas, miles y decenas de miles (el reconocimiento de voz suele devolver cifras).
+  const units = [[10000, '万'], [1000, '千'], [100, '百']];
+  for (const [u, c] of units) {
+    if (n >= u && n < u * 10) {
+      const r = n % u;
+      const rest = !r ? '' : (r < u / 10 ? '零' : '') + (r >= 10 && r < 20 ? '一' : '') + numToZh(r);
+      return ZH_DIGITS[Math.floor(n / u)] + c + rest;
+    }
+  }
+  return [...String(n)].map((d) => ZH_DIGITS[+d]).join('');
 }
-const cleanZh = (s) => String(s || '').replace(/\d+/g, (d) => numToZh(+d)).replace(/[^一-鿿]/g, '');
+// Los años (2026年) y los números largos (teléfonos) se leen cifra a cifra.
+const digitsZh = (d) => [...d].map((x) => ZH_DIGITS[+x]).join('');
+const cleanZh = (s) => String(s || '')
+  .replace(/(\d{4})(?=\s*年)/g, (d) => digitsZh(d))
+  .replace(/\d{6,}/g, (d) => digitsZh(d))
+  .replace(/\d+/g, (d) => numToZh(+d))
+  .replace(/[两幺]/g, (c) => (c === '两' ? '二' : '一'))
+  .replace(/[^一-鿿]/g, '');
 
 async function sylls(hanzi) {
   const lib = await loadPinyin();

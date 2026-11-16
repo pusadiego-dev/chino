@@ -1,24 +1,34 @@
-import * as store from './store.js?v=5';
-import { NOTA_APROBADO } from '../firebase-config.js?v=5';
-import { ACTIVIDADES, availableActivities, buildQuestions, buildExam, runQuiz, speak, canSpeak, esc, shuffle, showHanzi, setShowHanzi, hzLine, stopListening } from './activities.js?v=5';
+import * as store from './store.js?v=6';
+import { NOTA_APROBADO } from '../firebase-config.js?v=6';
+import { ACTIVIDADES, availableActivities, buildQuestions, buildExam, runQuiz, speak, canSpeak, esc, shuffle, showHanzi, setShowHanzi, hzLine, stopListening } from './activities.js?v=6';
 
 const app = document.getElementById('app');
 const userBox = document.getElementById('user-box');
 let lessons = [];
+let comodines = []; // lecciones comodín: fuera del orden, siempre abiertas
 
 // ---------- Datos ----------
 async function loadLessons() {
   const idx = await fetch('lessons/index.json', { cache: 'no-cache' }).then((r) => r.json());
-  const all = await Promise.all(idx.lecciones.map((f) =>
-    fetch(`lessons/${f}`, { cache: 'no-cache' }).then((r) => r.json()).catch(() => null)));
-  lessons = all.filter(Boolean).sort((a, b) => a.numero - b.numero);
+  const load = (files) => Promise.all((files || []).map((f) =>
+    fetch(`lessons/${f}`, { cache: 'no-cache' }).then((r) => r.json()).catch(() => null)))
+    .then((all) => all.filter(Boolean).sort((a, b) => a.numero - b.numero));
+  [lessons, comodines] = await Promise.all([load(idx.lecciones), load(idx.comodines)]);
 }
 
 const prog = (id) => store.getProgress()[id] || { aprobado: false, mejorExamen: 0, intentos: 0, actividades: {} };
 const isUnlocked = (i) => i === 0 || prog(lessons[i - 1].id).aprobado;
 const lessonIndex = (id) => lessons.findIndex((l) => l.id === id);
 // Elementos de esta lección y anteriores: sirven como opciones incorrectas.
-const poolUpTo = (i) => lessons.slice(0, i + 1).flatMap((l) => [...(l.vocabulario || []), ...(l.frases || [])]).filter((x) => x.hanzi && x.es);
+const poolOf = (ls) => ls.flatMap((l) => [...(l.vocabulario || []), ...(l.frases || [])]).filter((x) => x.hanzi && x.es);
+const poolUpTo = (i) => poolOf(lessons.slice(0, i + 1));
+// Busca una lección normal o comodín. Las comodín están siempre abiertas y usan su vocabulario y el de las lecciones normales como distractores.
+function getLesson(id) {
+  const i = lessonIndex(id);
+  if (i >= 0) return { l: lessons[i], i, open: isUnlocked(i), pool: poolUpTo(i), comodin: false };
+  const c = comodines.find((x) => x.id === id);
+  return c ? { l: c, i: -1, open: true, pool: poolOf([c, ...lessons]), comodin: true } : null;
+}
 
 // ---------- Vistas ----------
 function renderUserBox() {
@@ -139,14 +149,29 @@ function viewHome() {
           ${open ? `<div class="bar"><span style="width:${pct}%"></span></div>` : ''}
         </div></a>`;
     }).join('')}
-    ${lessons.length ? '' : '<p class="sub">Todavía no hay lecciones.</p>'}`;
+    ${lessons.length ? '' : '<p class="sub">Todavía no hay lecciones.</p>'}
+    ${comodines.length ? `<h2>Lecciones comodín</h2>
+    <p class="sub">Siempre abiertas: vocabulario y gramática para practicar cuando quieras.</p>
+    ${comodines.map((l) => {
+      const p = prog(l.id);
+      const tipos = availableActivities(l, getLesson(l.id).pool.length);
+      const hechas = tipos.filter((t) => (p.actividades[t] || 0) > 0).length;
+      const pct = tipos.length ? Math.round(((hechas + (p.aprobado ? 1 : 0)) / (tipos.length + 1)) * 100) : 0;
+      return `<a class="card lesson comodin ${p.aprobado ? 'done' : ''}" href="#/l/${l.id}">
+        <div class="num">${p.aprobado ? '✓' : '★'}</div>
+        <div class="info">
+          <div class="title">${esc(l.titulo)} ${l.tituloChino && showHanzi() ? `<span class="hz">${esc(l.tituloChino)}</span>` : ''}</div>
+          <div class="meta">Comodín · ${(l.vocabulario || []).length} palabras${p.mejorExamen ? ` · examen ${p.mejorExamen}%` : ''}</div>
+          <div class="bar"><span style="width:${pct}%"></span></div>
+        </div></a>`;
+    }).join('')}` : ''}`;
 }
 
 function viewLesson(id) {
-  const i = lessonIndex(id);
-  const l = lessons[i];
-  if (!l) return notFound();
-  if (!isUnlocked(i)) {
+  const g = getLesson(id);
+  if (!g) return notFound();
+  const { l, i } = g;
+  if (!g.open) {
     app.innerHTML = `<p><a href="#/">← Lecciones</a></p><div class="card" style="text-align:center">
       <div style="font-size:40px">🔒</div><h2>${esc(l.titulo)}</h2>
       <p class="sub">Aprueba el examen de la lección ${lessons[i - 1].numero} (${esc(lessons[i - 1].titulo)}) para desbloquearla.</p>
@@ -154,11 +179,11 @@ function viewLesson(id) {
     return;
   }
   const p = prog(id);
-  const tipos = availableActivities(l, poolUpTo(i).length);
+  const tipos = availableActivities(l, g.pool.length);
   const sc = (t) => (p.actividades[t] ? `Mejor: ${p.actividades[t]}%` : 'Sin hacer');
   app.innerHTML = `
     <p><a href="#/">← Lecciones</a></p>
-    <span class="tag">Lección ${l.numero}</span>
+    <span class="tag">${g.comodin ? 'Lección comodín' : `Lección ${l.numero}`}</span>
     <h1>${esc(l.titulo)} ${l.tituloChino && showHanzi() ? `<span class="hz">${esc(l.tituloChino)}</span>` : ''}</h1>
     ${l.resumen ? `<p class="sub">${esc(l.resumen)}</p>` : ''}
     <h2>Actividades</h2>
@@ -168,7 +193,7 @@ function viewLesson(id) {
       ${tipos.map((t) => `<a class="act" href="#/l/${id}/a/${t}"><div class="ico">${ACTIVIDADES[t].ico}</div>
         <div class="name">${ACTIVIDADES[t].nombre}</div><div class="score">${sc(t)}</div></a>`).join('')}
       ${tipos.length ? `<a class="act exam" href="#/l/${id}/examen"><div class="ico">🏆</div><div class="name">Examen de la lección</div>
-        <div class="score">${p.aprobado ? `Aprobado · mejor nota ${p.mejorExamen}%` : p.intentos ? `Mejor nota ${p.mejorExamen}% · necesitas ${NOTA_APROBADO}%` : `Necesitas ${NOTA_APROBADO}% para pasar a la siguiente lección`}</div></a>` : ''}
+        <div class="score">${p.aprobado ? `Aprobado · mejor nota ${p.mejorExamen}%` : p.intentos ? `Mejor nota ${p.mejorExamen}% · necesitas ${NOTA_APROBADO}%` : g.comodin ? `Aprueba con ${NOTA_APROBADO}%` : `Necesitas ${NOTA_APROBADO}% para pasar a la siguiente lección`}</div></a>` : ''}
     </div>
     ${material(l)}`;
   bindSpeak();
@@ -200,9 +225,9 @@ function bindSpeak() {
 }
 
 function viewFlash(id) {
-  const i = lessonIndex(id);
-  const l = lessons[i];
-  if (!l || !isUnlocked(i)) return notFound();
+  const g = getLesson(id);
+  if (!g || !g.open) return notFound();
+  const { l } = g;
   let cards = shuffle(l.vocabulario || []);
   const total = cards.length;
   let known = 0;
@@ -244,10 +269,9 @@ function viewFlash(id) {
 }
 
 function viewActivity(id, tipo) {
-  const i = lessonIndex(id);
-  const l = lessons[i];
-  if (!l || !isUnlocked(i) || !ACTIVIDADES[tipo]) return notFound();
-  const qs = buildQuestions(tipo, l, poolUpTo(i), 10);
+  const g = getLesson(id);
+  if (!g || !g.open || !ACTIVIDADES[tipo]) return notFound();
+  const qs = buildQuestions(tipo, g.l, g.pool, 10);
   runQuiz(app, qs, async (r) => {
     await store.recordActivity(id, tipo, r.pct);
     showResult(id, r, { again: () => viewActivity(id, tipo), title: ACTIVIDADES[tipo].nombre });
@@ -255,15 +279,15 @@ function viewActivity(id, tipo) {
 }
 
 function viewExam(id) {
-  const i = lessonIndex(id);
-  const l = lessons[i];
-  if (!l || !isUnlocked(i)) return notFound();
+  const g = getLesson(id);
+  if (!g || !g.open) return notFound();
+  const { l, i } = g;
   const yaAprobada = prog(id).aprobado;
-  const qs = buildExam(l, poolUpTo(i), 15);
+  const qs = buildExam(l, g.pool, 15);
   runQuiz(app, qs, async (r) => {
     const pass = r.pct >= NOTA_APROBADO;
     await store.recordExam(id, r.pct, pass);
-    const sig = lessons[i + 1];
+    const sig = g.comodin ? null : lessons[i + 1];
     showResult(id, r, {
       exam: true, pass,
       again: () => viewExam(id),

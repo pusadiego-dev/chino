@@ -1,0 +1,629 @@
+{
+  "id": "comodin-nombre",
+  "numero": 3,
+  "comodin": true,
+  "titulo": "Presentarse: ¿cómo te llamas?",
+  "tituloChino": "你叫什么名字",
+  "resumen": "Presentarte y presentar a otros: tu nombre y tu apellido, de dónde eres, quién es quién y «encantado de conocerte».",
+  "vocabulario": [
+    {
+      "hanzi": "你好",
+      "pinyin": "nǐ hǎo",
+      "es": "hola"
+    },
+    {
+      "hanzi": "您",
+      "pinyin": "nín",
+      "es": "usted"
+    },
+    {
+      "hanzi": "叫",
+      "pinyin": "jiào",
+      "es": "llamarse"
+    },
+    {
+      "hanzi": "名字",
+      "pinyin": "míngzi",
+      "es": "nombre"
+    },
+    {
+      "hanzi": "什么",
+      "pinyin": "shénme",
+      "es": "qué"
+    },
+    {
+      "hanzi": "姓",
+      "pinyin": "xìng",
+      "es": "apellidarse; apellido"
+    },
+    {
+      "hanzi": "贵姓",
+      "pinyin": "guìxìng",
+      "es": "su apellido (formal)"
+    },
+    {
+      "hanzi": "我",
+      "pinyin": "wǒ",
+      "es": "yo"
+    },
+    {
+      "hanzi": "你",
+      "pinyin": "nǐ",
+      "es": "tú"
+    },
+    {
+      "hanzi": "他",
+      "pinyin": "tā",
+      "es": "él",
+      "nota": "«ella» es 她, y se pronuncia igual: tā"
+    },
+    {
+      "hanzi": "我们",
+      "pinyin": "wǒmen",
+      "es": "nosotros"
+    },
+    {
+      "hanzi": "是",
+      "pinyin": "shì",
+      "es": "ser"
+    },
+    {
+      "hanzi": "不",
+      "pinyin": "bù",
+      "es": "no"
+    },
+    {
+      "hanzi": "吗",
+      "pinyin": "ma",
+      "es": "partícula de pregunta (sí o no)"
+    },
+    {
+      "hanzi": "呢",
+      "pinyin": "ne",
+      "es": "¿y…? (devolver la pregunta)"
+    },
+    {
+      "hanzi": "的",
+      "pinyin": "de",
+      "es": "de (posesión)"
+    },
+    {
+      "hanzi": "谁",
+      "pinyin": "shéi",
+      "es": "quién"
+    },
+    {
+      "hanzi": "哪",
+      "pinyin": "nǎ",
+      "es": "qué, cuál"
+    },
+    {
+      "hanzi": "国",
+      "pinyin": "guó",
+      "es": "país"
+    },
+    {
+      "hanzi": "人",
+      "pinyin": "rén",
+      "es": "persona"
+    },
+    {
+      "hanzi": "中国",
+      "pinyin": "Zhōngguó",
+      "es": "China"
+    },
+    {
+      "hanzi": "中国人",
+      "pinyin": "Zhōngguórén",
+      "es": "chino (persona)"
+    },
+    {
+      "hanzi": "西班牙",
+      "pinyin": "Xībānyá",
+      "es": "España"
+    },
+    {
+      "hanzi": "西班牙人",
+      "pinyin": "Xībānyárén",
+      "es": "español (persona)"
+    },
+    {
+      "hanzi": "认识",
+      "pinyin": "rènshi",
+      "es": "conocer (a alguien)"
+    },
+    {
+      "hanzi": "很",
+      "pinyin": "hěn",
+      "es": "muy"
+    },
+    {
+      "hanzi": "高兴",
+      "pinyin": "gāoxìng",
+      "es": "contento"
+    },
+    {
+      "hanzi": "也",
+      "pinyin": "yě",
+      "es": "también"
+    },
+    {
+      "hanzi": "朋友",
+      "pinyin": "péngyou",
+      "es": "amigo"
+    },
+    {
+      "hanzi": "老师",
+      "pinyin": "lǎoshī",
+      "es": "profesor"
+    },
+    {
+      "hanzi": "学生",
+      "pinyin": "xuésheng",
+      "es": "alumno"
+    },
+    {
+      "hanzi": "这",
+      "pinyin": "zhè",
+      "es": "este, esto"
+    },
+    {
+      "hanzi": "介绍",
+      "pinyin": "jièshào",
+      "es": "presentar"
+    },
+    {
+      "hanzi": "一下",
+      "pinyin": "yíxià",
+      "es": "un momento, un poco"
+    },
+    {
+      "hanzi": "中文",
+      "pinyin": "Zhōngwén",
+      "es": "chino (idioma)"
+    },
+    {
+      "hanzi": "迭戈",
+      "pinyin": "Diégē",
+      "es": "Diego",
+      "nota": "así se escribe Diego en chino"
+    }
+  ],
+  "frases": [
+    {
+      "hanzi": "你好！你叫什么名字？",
+      "pinyin": "Nǐ hǎo!nǐ jiào shénme míngzi?",
+      "es": "¡Hola! ¿Cómo te llamas?",
+      "palabras": [
+        "你好",
+        "！",
+        "你",
+        "叫",
+        "什么",
+        "名字",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ hǎo",
+        "！",
+        "nǐ",
+        "jiào",
+        "shénme",
+        "míngzi",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "我叫迭戈。",
+      "pinyin": "Wǒ jiào Diégē.",
+      "es": "Me llamo Diego.",
+      "palabras": [
+        "我",
+        "叫",
+        "迭戈",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "jiào",
+        "Diégē",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "你呢？",
+      "pinyin": "Nǐ ne?",
+      "es": "¿Y tú?",
+      "palabras": [
+        "你",
+        "呢",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "ne",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "您贵姓？",
+      "pinyin": "Nín guìxìng?",
+      "es": "¿Cuál es su apellido?",
+      "palabras": [
+        "您",
+        "贵姓",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nín",
+        "guìxìng",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "我姓王，叫王明。",
+      "pinyin": "Wǒ xìng Wáng, jiào Wáng Míng.",
+      "es": "Me apellido Wang, me llamo Wang Ming.",
+      "palabras": [
+        "我",
+        "姓",
+        "王",
+        "，",
+        "叫",
+        "王明",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "xìng",
+        "Wáng",
+        "，",
+        "jiào",
+        "Wáng Míng",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "你是哪国人？",
+      "pinyin": "Nǐ shì nǎ guó rén?",
+      "es": "¿De dónde eres?",
+      "palabras": [
+        "你",
+        "是",
+        "哪",
+        "国",
+        "人",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "shì",
+        "nǎ",
+        "guó",
+        "rén",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "我是西班牙人。",
+      "pinyin": "Wǒ shì Xībānyárén.",
+      "es": "Soy español.",
+      "palabras": [
+        "我",
+        "是",
+        "西班牙人",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "shì",
+        "Xībānyárén",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "你是中国人吗？",
+      "pinyin": "Nǐ shì Zhōngguórén ma?",
+      "es": "¿Eres chino?",
+      "palabras": [
+        "你",
+        "是",
+        "中国人",
+        "吗",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "shì",
+        "Zhōngguórén",
+        "ma",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "不是，我是西班牙人。",
+      "pinyin": "Bú shì, wǒ shì Xībānyárén.",
+      "es": "No, soy español.",
+      "palabras": [
+        "不",
+        "是",
+        "，",
+        "我",
+        "是",
+        "西班牙人",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Bú",
+        "shì",
+        "，",
+        "wǒ",
+        "shì",
+        "Xībānyárén",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "认识你很高兴。",
+      "pinyin": "Rènshi nǐ hěn gāoxìng.",
+      "es": "Encantado de conocerte.",
+      "palabras": [
+        "认识",
+        "你",
+        "很",
+        "高兴",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Rènshi",
+        "nǐ",
+        "hěn",
+        "gāoxìng",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "我也很高兴。",
+      "pinyin": "Wǒ yě hěn gāoxìng.",
+      "es": "Encantado también.",
+      "palabras": [
+        "我",
+        "也",
+        "很",
+        "高兴",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "yě",
+        "hěn",
+        "gāoxìng",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "他是谁？",
+      "pinyin": "Tā shì shéi?",
+      "es": "¿Quién es él?",
+      "palabras": [
+        "他",
+        "是",
+        "谁",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Tā",
+        "shì",
+        "shéi",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "他是我的朋友。",
+      "pinyin": "Tā shì wǒ de péngyou.",
+      "es": "Es mi amigo.",
+      "palabras": [
+        "他",
+        "是",
+        "我",
+        "的",
+        "朋友",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Tā",
+        "shì",
+        "wǒ",
+        "de",
+        "péngyou",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "她叫什么名字？",
+      "pinyin": "Tā jiào shénme míngzi?",
+      "es": "¿Cómo se llama ella?",
+      "palabras": [
+        "她",
+        "叫",
+        "什么",
+        "名字",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Tā",
+        "jiào",
+        "shénme",
+        "míngzi",
+        "？"
+      ]
+    },
+    {
+      "hanzi": "我介绍一下，这是我的老师。",
+      "pinyin": "Wǒ jièshào yíxià, zhè shì wǒ de lǎoshī.",
+      "es": "Os presento: este es mi profesor.",
+      "palabras": [
+        "我",
+        "介绍",
+        "一下",
+        "，",
+        "这",
+        "是",
+        "我",
+        "的",
+        "老师",
+        "。"
+      ],
+      "palabrasPinyin": [
+        "Wǒ",
+        "jièshào",
+        "yíxià",
+        "，",
+        "zhè",
+        "shì",
+        "wǒ",
+        "de",
+        "lǎoshī",
+        "。"
+      ]
+    },
+    {
+      "hanzi": "你的中文名字是什么？",
+      "pinyin": "Nǐ de Zhōngwén míngzi shì shénme?",
+      "es": "¿Cuál es tu nombre en chino?",
+      "palabras": [
+        "你",
+        "的",
+        "中文",
+        "名字",
+        "是",
+        "什么",
+        "？"
+      ],
+      "palabrasPinyin": [
+        "Nǐ",
+        "de",
+        "Zhōngwén",
+        "míngzi",
+        "shì",
+        "shénme",
+        "？"
+      ]
+    }
+  ],
+  "gramatica": [
+    {
+      "titulo": "叫 jiào y 姓 xìng",
+      "explicacion": "叫 + nombre completo dice cómo te llamas. 姓 + apellido dice solo el apellido. En los nombres chinos el apellido va primero: en 王明, Wáng es el apellido y Míng el nombre.",
+      "ejemplos": [
+        {
+          "hanzi": "我叫迭戈。",
+          "pinyin": "Wǒ jiào Diégē.",
+          "es": "Me llamo Diego."
+        },
+        {
+          "hanzi": "我姓王。",
+          "pinyin": "Wǒ xìng Wáng.",
+          "es": "Me apellido Wang."
+        }
+      ]
+    },
+    {
+      "titulo": "Las preguntas no cambian el orden",
+      "explicacion": "Para preguntar con 什么 (qué), 谁 (quién) o 哪 (cuál), se pone la palabra interrogativa en el sitio de la respuesta. El resto de la frase queda igual.",
+      "ejemplos": [
+        {
+          "hanzi": "你叫什么名字？",
+          "pinyin": "Nǐ jiào shénme míngzi?",
+          "es": "¿Cómo te llamas?"
+        },
+        {
+          "hanzi": "他是谁？",
+          "pinyin": "Tā shì shéi?",
+          "es": "¿Quién es él?"
+        },
+        {
+          "hanzi": "你是哪国人？",
+          "pinyin": "Nǐ shì nǎ guó rén?",
+          "es": "¿De dónde eres?"
+        }
+      ]
+    },
+    {
+      "titulo": "Preguntas de sí o no con 吗 ma",
+      "explicacion": "Añade 吗 al final de una frase afirmativa y se convierte en pregunta. Para contestar que no se usa 不: 不是 se pronuncia bú shì, porque 不 pasa a 2.º tono delante de un 4.º tono.",
+      "ejemplos": [
+        {
+          "hanzi": "你是老师吗？",
+          "pinyin": "Nǐ shì lǎoshī ma?",
+          "es": "¿Eres profesor?"
+        },
+        {
+          "hanzi": "不是，我是学生。",
+          "pinyin": "Bú shì, wǒ shì xuésheng.",
+          "es": "No, soy alumno."
+        }
+      ]
+    },
+    {
+      "titulo": "¿Y tú? con 呢 ne",
+      "explicacion": "Pronombre o nombre + 呢 devuelve la misma pregunta que se acaba de hacer, sin repetirla.",
+      "ejemplos": [
+        {
+          "hanzi": "我是西班牙人，你呢？",
+          "pinyin": "Wǒ shì Xībānyárén, nǐ ne?",
+          "es": "Soy español, ¿y tú?"
+        }
+      ]
+    },
+    {
+      "titulo": "Posesión con 的 de",
+      "explicacion": "El poseedor va delante, unido con 的: 我的名字 (mi nombre), 我的朋友 (mi amigo). Con la familia y la gente cercana se puede quitar: 我妈妈.",
+      "ejemplos": [
+        {
+          "hanzi": "我的名字",
+          "pinyin": "Wǒ de míngzi",
+          "es": "mi nombre"
+        },
+        {
+          "hanzi": "她是我的老师。",
+          "pinyin": "Tā shì wǒ de lǎoshī.",
+          "es": "Ella es mi profesora."
+        }
+      ]
+    },
+    {
+      "titulo": "很 + adjetivo, sin 是",
+      "explicacion": "Con adjetivos no se usa 是. Se pone 很 delante, aunque muchas veces no significa «muy», solo hace que la frase suene natural. 也 (también) va delante del verbo o de 很.",
+      "ejemplos": [
+        {
+          "hanzi": "我很高兴。",
+          "pinyin": "Wǒ hěn gāoxìng.",
+          "es": "Estoy contento."
+        },
+        {
+          "hanzi": "我也很高兴。",
+          "pinyin": "Wǒ yě hěn gāoxìng.",
+          "es": "Yo también estoy contento."
+        }
+      ]
+    },
+    {
+      "titulo": "Formal: 您 y 贵姓",
+      "explicacion": "Con alguien mayor o a quien no conoces se usa 您 en vez de 你, y se pregunta el apellido con 您贵姓？ (literalmente «¿su honorable apellido?»). Se contesta con 我姓…, nunca con 贵.",
+      "ejemplos": [
+        {
+          "hanzi": "您贵姓？",
+          "pinyin": "Nín guìxìng?",
+          "es": "¿Cuál es su apellido?"
+        },
+        {
+          "hanzi": "我姓李。",
+          "pinyin": "Wǒ xìng Lǐ.",
+          "es": "Me apellido Li."
+        }
+      ]
+    }
+  ],
+  "notas": "Lección comodín: siempre abierta y fuera del orden de las lecciones. Diego en chino se escribe 迭戈 (Diégē). Si alguien quiere un nombre chino propio, se puede añadir a la lección."
+}

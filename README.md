@@ -37,6 +37,10 @@ Formato:
 - El ejercicio de hablar usa el reconocimiento de voz del navegador para corregir solo (Chrome en Android, Safari en iPhone). Donde no existe (por ejemplo Chrome en iPhone o Firefox), la persona se graba, se escucha y se valora ella misma.
 - No cambies el `id` de una lección ya usada: el progreso se guarda con él.
 
+### Lecciones comodín
+
+Son lecciones de repaso temático (números, fechas, presentarse…) que están fuera del orden de las lecciones y siempre abiertas. Aparecen en el inicio, en su propia sección debajo de las lecciones numeradas. Tienen el mismo formato, con `"comodin": true`, y se listan en `lessons/index.json` dentro de `"comodines"` en vez de `"lecciones"`. Su `numero` solo decide el orden dentro de la sección, y aprobar su examen no desbloquea nada.
+
 ## Configurar Firebase (cuentas y resultados en la nube, gratis)
 
 1. Entra en https://console.firebase.google.com y crea un proyecto (puedes desactivar Analytics).

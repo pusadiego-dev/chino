@@ -92,6 +92,7 @@ label { font-size: 14px; color: var(--muted); }
 }
 .lesson.done .num { background: var(--ok-soft); color: var(--ok); }
 .lesson.locked { opacity: .55; }
+.lesson.comodin:not(.done) .num { background: #fef3c7; color: var(--gold); }
 .lesson .info { flex: 1; min-width: 0; }
 .lesson .title { font-weight: 600; }
 .lesson .meta { font-size: 13px; color: var(--muted); }

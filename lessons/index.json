@@ -7,5 +7,10 @@
     "leccion-05.json",
     "leccion-06.json",
     "leccion-07.json"
+  ],
+  "comodines": [
+    "comodin-numeros.json",
+    "comodin-fechas.json",
+    "comodin-nombre.json"
   ]
 }
